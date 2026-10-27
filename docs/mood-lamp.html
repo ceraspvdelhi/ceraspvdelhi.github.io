@@ -1,0 +1,324 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>10. Mood lamp · SPV Engineering Lab</title><meta name="description" content="A colour-changing lamp. Touch it to change its mood."><style>@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@600;700;800&family=JetBrains+Mono:wght@400;700&display=swap");
+:root{
+  --ink:#2b2f4a; --soft:#69709a; --bg:#eef3ff; --card:#fff; --line:#d3def6;
+  --purple:#7c4dff; --blue:#4c97ff; --green:#3fb950; --gold:#fdb515; --pc:#7c4dff;
+  --d:"Fredoka","Arial Rounded MT Bold","Trebuchet MS",system-ui,sans-serif;
+  --b:"Nunito","Segoe UI","Trebuchet MS",system-ui,sans-serif;
+  --m:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--b);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--purple)}
+h1,h2,h3{font-family:var(--d);font-weight:600;line-height:1.15;margin:0 0 .4em}
+h2{font-size:28px;margin-top:1.6em}
+h3{font-size:20px}
+p{margin:.5em 0}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+.top{background:linear-gradient(90deg,#7c4dff,#4c97ff);color:#fff;box-shadow:0 3px 0 rgba(0,0,0,.12)}
+.top .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.brand{font-family:var(--d);font-size:22px;font-weight:600;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;margin-right:auto}
+.brand i{width:12px;height:12px;border-radius:4px;display:block}
+.logo{display:grid;grid-template-columns:repeat(2,12px);gap:3px;transform:rotate(-8deg)}
+.nav a{font-family:var(--d);font-size:17px;color:#fff;text-decoration:none;padding:6px 14px;border-radius:14px;background:rgba(255,255,255,.18);margin-left:6px;display:inline-block}
+.nav a:hover,.nav a[aria-current]{background:#fff;color:var(--purple)}
+.hero{display:grid;grid-template-columns:1fr 200px;gap:16px;align-items:center;padding:34px 0 10px}
+.hero h1{font-size:44px}
+.hero p.lead{font-size:20px;color:var(--soft);max-width:30em}
+.hero .art svg{width:100%;height:auto;display:block}
+.pillrow{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.pill{font-family:var(--d);font-size:14px;border-radius:99px;padding:3px 12px;background:#fff;border:2px solid var(--line);color:var(--ink);white-space:nowrap}
+.pill.warn{background:#fff3d6;border-color:#f5c25a}
+.pill.ok{background:#e2f7e6;border-color:#9fdcab}
+.pill.blue{background:#e5f0ff;border-color:#a9c9ff}
+.btn{border:2px solid #d3def6;cursor:pointer;font-family:var(--d);font-weight:500;font-size:16px;padding:8px 16px;border-radius:14px;background:#fff;color:var(--ink);box-shadow:0 3px 0 #c9d6f2;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #c9d6f2}
+.btn.go{background:var(--green);border-color:#2c8f3b;color:#fff;box-shadow:0 4px 0 #2c8f3b}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:16px 0 30px}
+.card{background:#fff;border:2px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:transform .12s;box-shadow:0 4px 0 var(--line)}
+.card:hover{transform:translateY(-3px)}
+.card .band{background:var(--pc);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.card .num{font-family:var(--d);font-size:30px;font-weight:600;background:rgba(255,255,255,.25);width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:none}
+.card .band h3{margin:0;font-size:20px;color:#fff}
+.card .body{padding:12px 16px 16px;flex:1;display:flex;flex-direction:column;gap:10px}
+.card .body p{margin:0;font-size:15.5px}
+.card .done{margin-left:auto;font-size:22px;display:none}
+.card.is-done .done{display:block}
+section.block{background:#fff;border:2px solid var(--line);border-radius:20px;padding:6px 22px 18px;margin:18px 0;box-shadow:0 4px 0 var(--line)}
+section.block h2{margin-top:.7em;font-size:25px}
+.banner{background:var(--pc);color:#fff;border-radius:0 0 28px 28px;padding:26px 0 24px;box-shadow:0 5px 0 rgba(0,0,0,.14)}
+.banner .wrap{display:flex;gap:18px;align-items:center}
+.banner .num{font-family:var(--d);font-size:54px;font-weight:600;background:rgba(255,255,255,.25);width:86px;height:86px;border-radius:26px;display:grid;place-items:center;flex:none}
+.banner h1{margin:0;font-size:38px}
+.banner p{margin:4px 0 0;font-size:19px;opacity:.95}
+.banner .pill{border-color:transparent}
+ol.steps{padding:0;margin:.6em 0;list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:8px 0 8px 52px;min-height:46px}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:6px;width:36px;height:36px;border-radius:12px;background:var(--pc);color:#fff;font-family:var(--d);font-size:20px;display:grid;place-items:center}
+ul.plain{margin:.4em 0;padding-left:22px}
+ul.plain li{margin:.25em 0}
+ul.parts{list-style:none;padding:0;margin:.4em 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+ul.parts li{background:#f4f7ff;border:2px solid var(--line);border-radius:14px;padding:8px 12px;display:flex;gap:10px;align-items:center}
+ul.parts li b{font-family:var(--d);background:var(--pc);color:#fff;border-radius:10px;padding:0 9px;min-width:30px;text-align:center}
+ul.parts li.miss{background:#fff3d6;border-color:#f5c25a}
+.note{background:#fff3d6;border:2px solid #f5c25a;border-radius:16px;padding:10px 16px;margin:12px 0}
+.tip{background:#e5f0ff;border:2px solid #a9c9ff;border-radius:16px;padding:10px 16px;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:15.5px;margin:.6em 0}
+th,td{border:2px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#f4f7ff;font-family:var(--d);font-weight:500}
+.diagram{overflow-x:auto;background:#f9fbff;border:2px solid var(--line);border-radius:16px;padding:6px}
+.diagram svg{display:block;min-width:620px;width:100%;height:auto}
+.code{border:2px solid var(--line);border-radius:16px;overflow:hidden;margin:12px 0;background:#fff}
+.code .bar{display:flex;gap:8px;align-items:center;padding:8px 12px;background:#f4f7ff;border-bottom:2px solid var(--line);flex-wrap:wrap}
+.code .bar b{font-family:var(--d);font-weight:500;margin-right:auto}
+.code pre{margin:0;padding:12px 14px;overflow:auto;max-height:520px;font-family:var(--m);font-size:13.5px;line-height:1.5;color:#2b2f4a;tab-size:2}
+.t-c{color:#4f8a5b;font-style:italic}.t-k{color:#7c4dff;font-weight:700}.t-n{color:#d9731a}.t-s{color:#c0392b}.t-f{color:#1d7fbf}
+details{background:#f4f7ff;border:2px solid var(--line);border-radius:14px;margin:8px 0;padding:8px 14px}
+details summary{font-family:var(--d);cursor:pointer}
+.nextrow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:26px 0 40px}
+.built{margin-top:10px}
+footer{text-align:center;color:var(--soft);font-size:14px;padding:20px 18px 40px}
+.parttiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.ptile{background:#fff;border:2px solid var(--line);border-radius:18px;padding:12px 14px}
+.ptile svg{width:100%;height:84px;background:#f4f7ff;border-radius:12px;margin-bottom:8px}
+.ptile h3{margin:0 0 4px;font-size:19px}
+.ptile p{margin:.25em 0;font-size:15px}
+@media(max-width:640px){
+  .hero{grid-template-columns:1fr}.hero .art{max-width:150px}.hero h1{font-size:34px}
+  .banner .wrap{flex-direction:column;align-items:flex-start}.banner h1{font-size:30px}
+  .nav a{margin:4px 4px 0 0}
+}
+@media print{.top,.nextrow,.btn,footer{display:none}}
+
+ul.ticks{list-style:none;padding:0;margin:.4em 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px}ul.ticks li{background:#f4f7ff;border:2px solid var(--line);border-radius:12px;padding:6px 10px}ul.ticks input{width:20px;height:20px;vertical-align:middle;accent-color:var(--pc)}ul.ticks label{cursor:pointer}.soft{color:var(--soft);font-size:15px}
+.nav a{margin-bottom:2px}
+
+code{font-family:var(--m);font-size:13.5px;background:#f4f7ff;border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+
+/* SPV academic laboratory interface — custom theme */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+:root{--ink:#17243b;--soft:#556479;--bg:#f5f7fa;--card:#fff;--line:#dce3ea;--purple:#17395e;--blue:#24628d;--green:#14644e;--gold:#b78a4b;--pc:#20547a;--d:'DM Sans',Arial,sans-serif;--b:'DM Sans',Arial,sans-serif;--m:'IBM Plex Mono',monospace;color-scheme:light}
+html{scroll-behavior:smooth} body{font-size:15.5px;line-height:1.68} a{color:#20547a} .wrap{max-width:1140px;padding:0 28px}
+.top{background:#142a43;box-shadow:none;border-bottom:3px solid #b9a079} .top .wrap{padding-top:16px;padding-bottom:16px;gap:26px}
+.brand{font-size:16px;font-weight:700;letter-spacing:.035em;text-transform:uppercase;line-height:1.35;max-width:460px}.brand:before{content:'SPV';background:#e8e1d2;color:#142a43;font-size:12px;border:1px solid #b9a079;border-radius:2px;padding:8px 9px;letter-spacing:.12em;margin-right:12px}.brand .logo{display:none}
+.nav{margin-left:auto}.nav a{font-family:var(--b);font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;background:transparent;border:1px solid transparent;padding:8px 11px;border-radius:4px;margin-left:1px}.nav a:hover,.nav a[aria-current]{background:#fff;color:#142a43}
+h1,h2,h3{font-family:var(--d);letter-spacing:-.035em}h2{font-size:25px}h3{font-size:18px}.hero{grid-template-columns:1fr;padding:70px 0 38px;border-bottom:1px solid var(--line);margin-bottom:30px}.hero h1{font-size:clamp(34px,4vw,54px);max-width:800px}.hero p.lead{font-size:17px;max-width:680px}.hero .art{display:none}.hero:before{content:'SARDAR PATEL VIDYALAYA  /  COMPUTER SCIENCE LABORATORY';display:block;color:#8b6940;font-size:11px;font-weight:700;letter-spacing:.17em;grid-column:1;margin-bottom:15px}
+.btn,.btn.go{font-family:var(--b);border-radius:5px;box-shadow:none;font-size:13px;letter-spacing:.012em;font-weight:700;padding:10px 15px}.btn.go{background:#184466;border-color:#184466;box-shadow:none}.btn:hover{transform:none;background:#e5edf3}.btn.go:hover{background:#0f304a}.btn:active{transform:none;box-shadow:none}
+.grid{grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}.card{border:1px solid var(--line);border-radius:6px;box-shadow:0 2px 8px rgba(17,39,60,.04);transition:box-shadow .2s,border-color .2s}.card:hover{transform:none;box-shadow:0 8px 23px rgba(17,39,60,.1);border-color:#b1c1d1}.card .band{background:#edf2f6;color:#172b46;padding:18px;gap:13px;border-bottom:1px solid var(--line)}.card .num{font:600 13px var(--m);color:#184466;background:#dce6ee;border-radius:4px;width:40px;height:40px}.card .band h3{color:#172b46;font-size:18px}.card .body{padding:16px 18px}.card .body p{font-size:14px}.card .done{font-size:17px;color:#14644e}
+.pill{border:1px solid #d5dee7;border-radius:3px;font:500 11px var(--b);background:#f7f9fb;color:#45576d;padding:5px 8px}.pill.ok,.pill.blue,.pill.warn{background:#f7f9fb;border-color:#d5dee7;color:#45576d}.banner{background:#1b3957;border-radius:0;padding:32px 0;box-shadow:none;border-bottom:4px solid #b9a079}.banner .num{font:600 28px var(--m);border-radius:5px;width:80px;height:80px;background:#2a4d6d}.banner h1{font-size:35px}.banner p{font-size:16px}
+section.block{border:1px solid var(--line);border-radius:6px;box-shadow:none;padding:16px 25px 24px;margin:22px 0}section.block h2{font-size:23px}
+ol.steps li:before{background:#1b486b;border-radius:3px;font:600 15px var(--m)}ul.parts li,ul.ticks li{background:#f6f8fa;border:1px solid var(--line);border-radius:4px}ul.parts li b{background:#1b486b;border-radius:3px;font:600 13px var(--m)}.note,.tip{border-radius:4px;border-width:1px;padding:14px 18px}.note{background:#faf6ef;border-color:#ddcdb0}.tip{background:#edf4f8;border-color:#bfcedd}.diagram,.code,details,.ptile{border-radius:5px;border-width:1px;box-shadow:none}.diagram{background:#fff}.code .bar{background:#f0f4f7;border-bottom-width:1px}.code pre{color:#1c344b}.ptile{border:1px solid var(--line)}.ptile svg{border-radius:3px}th,td{border:1px solid var(--line);padding:11px 12px}th{background:#f0f4f7;font-weight:700}details{background:#f4f7fa;border-color:#dce3ea}code{border-radius:3px}footer{border-top:1px solid var(--line);margin-top:40px;text-align:left;font-size:12px} 
+@media(max-width:680px){.wrap{padding:0 18px}.hero{padding:42px 0 24px}.top .wrap{gap:10px}.brand{font-size:13px}.nav{margin-left:0}.nav a{font-size:11px;padding:7px}.banner .wrap{flex-direction:row;align-items:center}.banner .num{height:64px;width:64px;font-size:21px}.banner h1{font-size:25px}}
+@media print{.top{display:none}.card,section.block{break-inside:avoid}}
+</style></head><body style="--pc:#d946ef"><header class="top"><div class="wrap"><a class="brand" href="index.html"><span class="logo"><i style="background:#ffbf00"></i><i style="background:#4c97ff"></i><i style="background:#3fb950"></i><i style="background:#ff6680"></i></span>SPV Engineering Lab</a><nav class="nav"><a href="index.html">Projects</a><a href="start.html">Getting started</a><a href="box.html">Equipment</a><a href="buy.html">Components</a><a href="learn.html">Learn more</a></nav></div></header><div class="banner"><div class="wrap"><div class="num">10</div><div><h1>Mood lamp</h1><p>A colour-changing lamp. Touch it to change its mood.</p><div class="pillrow"><span class="pill warn">Needs 220 Ω resistors</span><span class="pill">35 min</span><span class="pill">Level ★★★</span></div></div></div></div><div class="wrap"><section class="block"><h2>What you will make</h2><p>An RGB LED is three LEDs in one: red, green and blue. It has four legs. The longest leg is the shared one, which goes to ground. By lighting each colour a little or a lot, you can make any colour. Each colour leg needs a 220 Ω resistor.</p><div class="note"><b>No resistors?</b> This one needs the three resistors. Without them the RGB LED must stay unplugged. You can still run the sketch with HAVE_RESISTORS set to 0: it prints the mood names and blinks the light on the Nano once for mood 1, twice for mood 2 and so on.</div></section><section class="block"><h2>What you need</h2><ul class="parts"><li class=""><b>1</b>Arduino Nano + base board</li><li class=""><b>1</b>RGB LED</li><li class=""><b>1</b>Touch sensor module</li><li class=""><b>1</b>Breadboard</li><li class="miss"><b>3</b>Resistor 220 Ω (not in the box)</li><li class=""><b>7</b>Jumpers: 4 male-female, 3 female-female</li></ul><p><a class="btn" href="buy.html">Where to get 220 Ω resistors</a></p><p class="soft">Each part is described on <a href="box.html">Equipment</a>.</p></section><section class="block"><h2>Build it</h2><ol class="steps"><li>Unplug the USB. Push the RGB LED into the breadboard with each leg in its own row. The longest leg is the one second from the flat side.</li><li>Put a 220 Ω resistor from each of the three shorter legs to an empty row.</li><li>Run jumpers: D9 S to the red resistor, D10 S to green, D11 S to blue. The long leg goes to the G rail.</li><li>Wire the touch sensor to D7 as in Project 3.</li><li>Upload. The lamp starts as a rainbow. Touch to move to Calm, Happy, Sleepy and Excited.</li></ol><h2>Wiring</h2><div class="diagram"><svg viewBox="0 0 760 458" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wiring diagram"><text x="12" y="14" font-family="Fredoka,sans-serif" font-size="12" fill="#69709a">NANO BASE BOARD</text><text x="748" y="14" text-anchor="end" font-family="Fredoka,sans-serif" font-size="12" fill="#69709a">PART</text><line x1="96" y1="51" x2="600" y2="51" stroke="#ef4444" stroke-width="6" stroke-linecap="round"/><rect x="226" y="35" width="76" height="32" rx="6" fill="#fff" stroke="#9aa6c8" stroke-width="2"/><circle cx="240" cy="45" r="2" fill="#9aa6c8"/><circle cx="240" cy="57" r="2" fill="#9aa6c8"/><circle cx="252" cy="45" r="2" fill="#9aa6c8"/><circle cx="252" cy="57" r="2" fill="#9aa6c8"/><circle cx="264" cy="45" r="2" fill="#9aa6c8"/><circle cx="264" cy="57" r="2" fill="#9aa6c8"/><circle cx="276" cy="45" r="2" fill="#9aa6c8"/><circle cx="276" cy="57" r="2" fill="#9aa6c8"/><circle cx="288" cy="45" r="2" fill="#9aa6c8"/><circle cx="288" cy="57" r="2" fill="#9aa6c8"/><text x="264" y="81" text-anchor="middle" font-family="Nunito,sans-serif" font-size="11" fill="#69709a">breadboard</text><rect x="390" y="40" width="84" height="22" rx="8" fill="#f2d7a4" stroke="#b78a3a" stroke-width="2"/><rect x="410" y="40" width="5" height="22" fill="#c0392b"/><rect x="422" y="40" width="5" height="22" fill="#c0392b"/><rect x="434" y="40" width="5" height="22" fill="#7b4a1e"/><text x="432" y="81" text-anchor="middle" font-family="Nunito,sans-serif" font-size="11" fill="#69709a">220 Ω resistor</text><rect x="10" y="35" width="86" height="32" rx="10" fill="#fff" stroke="#ef4444" stroke-width="3"/><text x="53" y="56" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="700" font-size="14" fill="#2b2f4a">D9 S</text><rect x="600" y="35" width="150" height="32" rx="10" fill="#ef4444"/><text x="675" y="56" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">RGB red leg</text><line x1="96" y1="113" x2="600" y2="113" stroke="#22c55e" stroke-width="6" stroke-linecap="round"/><rect x="226" y="97" width="76" height="32" rx="6" fill="#fff" stroke="#9aa6c8" stroke-width="2"/><circle cx="240" cy="107" r="2" fill="#9aa6c8"/><circle cx="240" cy="119" r="2" fill="#9aa6c8"/><circle cx="252" cy="107" r="2" fill="#9aa6c8"/><circle cx="252" cy="119" r="2" fill="#9aa6c8"/><circle cx="264" cy="107" r="2" fill="#9aa6c8"/><circle cx="264" cy="119" r="2" fill="#9aa6c8"/><circle cx="276" cy="107" r="2" fill="#9aa6c8"/><circle cx="276" cy="119" r="2" fill="#9aa6c8"/><circle cx="288" cy="107" r="2" fill="#9aa6c8"/><circle cx="288" cy="119" r="2" fill="#9aa6c8"/><text x="264" y="143" text-anchor="middle" font-family="Nunito,sans-serif" font-size="11" fill="#69709a">breadboard</text><rect x="390" y="102" width="84" height="22" rx="8" fill="#f2d7a4" stroke="#b78a3a" stroke-width="2"/><rect x="410" y="102" width="5" height="22" fill="#c0392b"/><rect x="422" y="102" width="5" height="22" fill="#c0392b"/><rect x="434" y="102" width="5" height="22" fill="#7b4a1e"/><text x="432" y="143" text-anchor="middle" font-family="Nunito,sans-serif" font-size="11" fill="#69709a">220 Ω resistor</text><rect x="10" y="97" width="86" height="32" rx="10" fill="#fff" stroke="#22c55e" stroke-width="3"/><text x="53" y="118" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="700" font-size="14" fill="#2b2f4a">D10 S</text><rect x="600" y="97" width="150" height="32" rx="10" fill="#22c55e"/><text x="675" y="118" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">RGB green leg</text><line x1="96" y1="175" x2="600" y2="175" stroke="#3b82f6" stroke-width="6" stroke-linecap="round"/><rect x="226" y="159" width="76" height="32" rx="6" fill="#fff" stroke="#9aa6c8" stroke-width="2"/><circle cx="240" cy="169" r="2" fill="#9aa6c8"/><circle cx="240" cy="181" r="2" fill="#9aa6c8"/><circle cx="252" cy="169" r="2" fill="#9aa6c8"/><circle cx="252" cy="181" r="2" fill="#9aa6c8"/><circle cx="264" cy="169" r="2" fill="#9aa6c8"/><circle cx="264" cy="181" r="2" fill="#9aa6c8"/><circle cx="276" cy="169" r="2" fill="#9aa6c8"/><circle cx="276" cy="181" r="2" fill="#9aa6c8"/><circle cx="288" cy="169" r="2" fill="#9aa6c8"/><circle cx="288" cy="181" r="2" fill="#9aa6c8"/><text x="264" y="205" text-anchor="middle" font-family="Nunito,sans-serif" font-size="11" fill="#69709a">breadboard</text><rect x="390" y="164" width="84" height="22" rx="8" fill="#f2d7a4" stroke="#b78a3a" stroke-width="2"/><rect x="410" y="164" width="5" height="22" fill="#c0392b"/><rect x="422" y="164" width="5" height="22" fill="#c0392b"/><rect x="434" y="164" width="5" height="22" fill="#7b4a1e"/><text x="432" y="205" text-anchor="middle" font-family="Nunito,sans-serif" font-size="11" fill="#69709a">220 Ω resistor</text><rect x="10" y="159" width="86" height="32" rx="10" fill="#fff" stroke="#3b82f6" stroke-width="3"/><text x="53" y="180" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="700" font-size="14" fill="#2b2f4a">D11 S</text><rect x="600" y="159" width="150" height="32" rx="10" fill="#3b82f6"/><text x="675" y="180" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">RGB blue leg</text><line x1="96" y1="237" x2="600" y2="237" stroke="#334155" stroke-width="6" stroke-linecap="round"/><rect x="310" y="221" width="76" height="32" rx="6" fill="#fff" stroke="#9aa6c8" stroke-width="2"/><circle cx="324" cy="231" r="2" fill="#9aa6c8"/><circle cx="324" cy="243" r="2" fill="#9aa6c8"/><circle cx="336" cy="231" r="2" fill="#9aa6c8"/><circle cx="336" cy="243" r="2" fill="#9aa6c8"/><circle cx="348" cy="231" r="2" fill="#9aa6c8"/><circle cx="348" cy="243" r="2" fill="#9aa6c8"/><circle cx="360" cy="231" r="2" fill="#9aa6c8"/><circle cx="360" cy="243" r="2" fill="#9aa6c8"/><circle cx="372" cy="231" r="2" fill="#9aa6c8"/><circle cx="372" cy="243" r="2" fill="#9aa6c8"/><text x="348" y="267" text-anchor="middle" font-family="Nunito,sans-serif" font-size="11" fill="#69709a">breadboard</text><rect x="10" y="221" width="86" height="32" rx="10" fill="#fff" stroke="#334155" stroke-width="3"/><text x="53" y="242" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="700" font-size="14" fill="#2b2f4a">G</text><rect x="600" y="221" width="150" height="32" rx="10" fill="#334155"/><text x="675" y="242" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">RGB longest leg</text><line x1="96" y1="299" x2="576.4" y2="299" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/><rect x="10" y="283" width="86" height="32" rx="10" fill="#fff" stroke="#f59e0b" stroke-width="3"/><text x="53" y="304" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="700" font-size="14" fill="#2b2f4a">D7 S</text><rect x="576.4" y="283" width="173.6" height="32" rx="10" fill="#f59e0b"/><text x="663.1999999999999" y="304" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">Touch sensor · I/O</text><line x1="96" y1="361" x2="576.4" y2="361" stroke="#e11d48" stroke-width="6" stroke-linecap="round"/><rect x="10" y="345" width="86" height="32" rx="10" fill="#fff" stroke="#e11d48" stroke-width="3"/><text x="53" y="366" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="700" font-size="14" fill="#2b2f4a">D7 V</text><rect x="576.4" y="345" width="173.6" height="32" rx="10" fill="#e11d48"/><text x="663.1999999999999" y="366" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">Touch sensor · VCC</text><line x1="96" y1="423" x2="576.4" y2="423" stroke="#334155" stroke-width="6" stroke-linecap="round"/><rect x="10" y="407" width="86" height="32" rx="10" fill="#fff" stroke="#334155" stroke-width="3"/><text x="53" y="428" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="700" font-size="14" fill="#2b2f4a">D7 G</text><rect x="576.4" y="407" width="173.6" height="32" rx="10" fill="#334155"/><text x="663.1999999999999" y="428" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="14" fill="#fff">Touch sensor · GND</text></svg></div><table><tr><th>From (base board)</th><th>Through</th><th>To</th><th>Jumper</th></tr><tr><td><b>D9 S</b></td><td>breadboard then 220 Ω resistor</td><td>RGB red leg</td><td>male-female (female end on the base board)</td></tr><tr><td><b>D10 S</b></td><td>breadboard then 220 Ω resistor</td><td>RGB green leg</td><td>male-female (female end on the base board)</td></tr><tr><td><b>D11 S</b></td><td>breadboard then 220 Ω resistor</td><td>RGB blue leg</td><td>male-female (female end on the base board)</td></tr><tr><td><b>G</b></td><td>breadboard</td><td>RGB longest leg</td><td>male-female (female end on the base board)</td></tr><tr><td><b>D7 S</b></td><td>direct</td><td>Touch sensor · I/O</td><td>female-female</td></tr><tr><td><b>D7 V</b></td><td>direct</td><td>Touch sensor · VCC</td><td>female-female</td></tr><tr><td><b>D7 G</b></td><td>direct</td><td>Touch sensor · GND</td><td>female-female</td></tr></table><h3>Tick each wire when it is done</h3><ul class="ticks"><li><label><input type="checkbox"> D9 S → RGB red leg</label></li><li><label><input type="checkbox"> D10 S → RGB green leg</label></li><li><label><input type="checkbox"> D11 S → RGB blue leg</label></li><li><label><input type="checkbox"> G → RGB longest leg</label></li><li><label><input type="checkbox"> D7 S → Touch sensor · I/O</label></li><li><label><input type="checkbox"> D7 V → Touch sensor · VCC</label></li><li><label><input type="checkbox"> D7 G → Touch sensor · GND</label></li></ul><div class="note"><b>Before you plug in the USB:</b> every box above is ticked and no bare metal legs touch each other. The long leg of each LED goes to the resistor side.</div><div class="tip">Always change wires with the USB unplugged. Orange is a signal wire, red is power (5 V) and dark is ground. Your real jumpers can be any colour.</div></section><section class="block"><h2>The code</h2><p>Open the Arduino IDE, delete everything in the window, paste this, and press Upload. Board settings are on the <a href="start.html">Getting started</a> page.</p><div class="code" data-file="p10_mood_lamp.ino"><div class="bar"><b>Mood lamp</b><button class="btn small" data-copy>Copy code</button><button class="btn small" data-dl>Download .ino</button></div><pre><span class="t-c">// Project 10: Mood lamp</span>
+<span class="t-c">// RGB LED: red on D9, green on D10, blue on D11, each through a 220 ohm resistor.</span>
+<span class="t-c">// The long leg of the LED goes to ground (common cathode).</span>
+<span class="t-c">// Touch sensor on D7 changes the mood.</span>
+<span class="t-c">//</span>
+<span class="t-c">// If the colours look inverted (you expected off and it is bright), your LED is</span>
+<span class="t-c">// "common anode": connect the long leg to 5V and set COMMON_ANODE to true.</span>
+<span class="t-c">//</span>
+<span class="t-c">// No resistors yet? Set HAVE_RESISTORS to 0. The sketch will not light the RGB LED;</span>
+<span class="t-c">// it only prints the colour names in the Serial Monitor.</span>
+
+<span class="t-k">#define</span> HAVE_RESISTORS <span class="t-n">1</span>
+<span class="t-k">const</span> <span class="t-k">bool</span> COMMON_ANODE = <span class="t-k">false</span>;
+
+<span class="t-k">const</span> <span class="t-k">int</span> RED_PIN = <span class="t-n">9</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> GREEN_PIN = <span class="t-n">10</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> BLUE_PIN = <span class="t-n">11</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> TOUCH_PIN = <span class="t-n">7</span>;
+
+<span class="t-k">const</span> <span class="t-k">char</span>* moodName[] = {<span class="t-s">"Rainbow"</span>, <span class="t-s">"Calm"</span>, <span class="t-s">"Happy"</span>, <span class="t-s">"Sleepy"</span>, <span class="t-s">"Excited"</span>};
+<span class="t-k">const</span> <span class="t-k">int</span> moodColour[][<span class="t-n">3</span>] = {
+  {<span class="t-n">0</span>, <span class="t-n">0</span>, <span class="t-n">0</span>},         <span class="t-c">// rainbow (changes by itself)</span>
+  {<span class="t-n">0</span>, <span class="t-n">80</span>, <span class="t-n">255</span>},      <span class="t-c">// calm: blue</span>
+  {<span class="t-n">255</span>, <span class="t-n">180</span>, <span class="t-n">0</span>},     <span class="t-c">// happy: yellow</span>
+  {<span class="t-n">120</span>, <span class="t-n">0</span>, <span class="t-n">200</span>},     <span class="t-c">// sleepy: purple</span>
+  {<span class="t-n">255</span>, <span class="t-n">30</span>, <span class="t-n">30</span>}      <span class="t-c">// excited: red</span>
+};
+<span class="t-k">const</span> <span class="t-k">int</span> MOODS = <span class="t-n">5</span>;
+
+<span class="t-k">int</span> mood = <span class="t-n">0</span>;
+<span class="t-k">bool</span> wasTouched = <span class="t-k">false</span>;
+
+<span class="t-k">void</span> <span class="t-f">show</span>(<span class="t-k">int</span> r, <span class="t-k">int</span> g, <span class="t-k">int</span> b) {
+#<span class="t-k">if</span> HAVE_RESISTORS
+  <span class="t-k">if</span> (COMMON_ANODE) { r = <span class="t-n">255</span> - r; g = <span class="t-n">255</span> - g; b = <span class="t-n">255</span> - b; }
+  <span class="t-f">analogWrite</span>(RED_PIN, r);
+  <span class="t-f">analogWrite</span>(GREEN_PIN, g);
+  <span class="t-f">analogWrite</span>(BLUE_PIN, b);
+#endif
+}
+
+<span class="t-c">// hue 0..767 around the colour wheel</span>
+<span class="t-k">void</span> <span class="t-f">wheel</span>(<span class="t-k">int</span> h) {
+  h = h % <span class="t-n">768</span>;
+  <span class="t-k">if</span> (h &lt; <span class="t-n">256</span>)      <span class="t-f">show</span>(<span class="t-n">255</span> - h, h, <span class="t-n">0</span>);
+  <span class="t-k">else</span> <span class="t-k">if</span> (h &lt; <span class="t-n">512</span>) <span class="t-f">show</span>(<span class="t-n">0</span>, <span class="t-n">255</span> - (h - <span class="t-n">256</span>), h - <span class="t-n">256</span>);
+  <span class="t-k">else</span>              <span class="t-f">show</span>(h - <span class="t-n">512</span>, <span class="t-n">0</span>, <span class="t-n">255</span> - (h - <span class="t-n">512</span>));
+}
+
+<span class="t-k">void</span> <span class="t-f">setup</span>() {
+  <span class="t-f">pinMode</span>(TOUCH_PIN, <span class="t-k">INPUT</span>);
+#<span class="t-k">if</span> HAVE_RESISTORS
+  <span class="t-f">pinMode</span>(RED_PIN, <span class="t-k">OUTPUT</span>);
+  <span class="t-f">pinMode</span>(GREEN_PIN, <span class="t-k">OUTPUT</span>);
+  <span class="t-f">pinMode</span>(BLUE_PIN, <span class="t-k">OUTPUT</span>);
+#endif
+  <span class="t-f">pinMode</span>(LED_BUILTIN, <span class="t-k">OUTPUT</span>);
+  Serial.<span class="t-f">begin</span>(<span class="t-n">9600</span>);
+  Serial.<span class="t-f">println</span>(<span class="t-s">"Mood lamp ready. Touch to change the mood."</span>);
+  Serial.<span class="t-f">println</span>(<span class="t-s">"Mood: Rainbow"</span>);
+}
+
+<span class="t-k">void</span> <span class="t-f">loop</span>() {
+  <span class="t-k">bool</span> touched = <span class="t-f">digitalRead</span>(TOUCH_PIN) == <span class="t-k">HIGH</span>;
+  <span class="t-k">if</span> (touched &amp;&amp; !wasTouched) {
+    mood = (mood + <span class="t-n">1</span>) % MOODS;
+    Serial.<span class="t-f">print</span>(<span class="t-s">"Mood: "</span>);
+    Serial.<span class="t-f">println</span>(moodName[mood]);
+    <span class="t-k">for</span> (<span class="t-k">int</span> i = <span class="t-n">0</span>; i &lt; mood; i++) {     <span class="t-c">// the board light blinks the mood number</span>
+      <span class="t-f">digitalWrite</span>(LED_BUILTIN, <span class="t-k">HIGH</span>);
+      <span class="t-f">delay</span>(<span class="t-n">80</span>);
+      <span class="t-f">digitalWrite</span>(LED_BUILTIN, <span class="t-k">LOW</span>);
+      <span class="t-f">delay</span>(<span class="t-n">80</span>);
+    }
+  }
+  wasTouched = touched;
+
+  <span class="t-k">if</span> (mood == <span class="t-n">0</span>) {
+    <span class="t-k">static</span> <span class="t-k">int</span> hue = <span class="t-n">0</span>;
+    <span class="t-f">wheel</span>(hue);
+    hue = (hue + <span class="t-n">2</span>) % <span class="t-n">768</span>;
+    <span class="t-f">delay</span>(<span class="t-n">15</span>);
+  } <span class="t-k">else</span> {
+    <span class="t-f">show</span>(moodColour[mood][<span class="t-n">0</span>], moodColour[mood][<span class="t-n">1</span>], moodColour[mood][<span class="t-n">2</span>]);
+    <span class="t-f">delay</span>(<span class="t-n">15</span>);
+  }
+}
+</pre><textarea hidden>// Project 10: Mood lamp
+// RGB LED: red on D9, green on D10, blue on D11, each through a 220 ohm resistor.
+// The long leg of the LED goes to ground (common cathode).
+// Touch sensor on D7 changes the mood.
+//
+// If the colours look inverted (you expected off and it is bright), your LED is
+// "common anode": connect the long leg to 5V and set COMMON_ANODE to true.
+//
+// No resistors yet? Set HAVE_RESISTORS to 0. The sketch will not light the RGB LED;
+// it only prints the colour names in the Serial Monitor.
+
+#define HAVE_RESISTORS 1
+const bool COMMON_ANODE = false;
+
+const int RED_PIN = 9;
+const int GREEN_PIN = 10;
+const int BLUE_PIN = 11;
+const int TOUCH_PIN = 7;
+
+const char* moodName[] = {"Rainbow", "Calm", "Happy", "Sleepy", "Excited"};
+const int moodColour[][3] = {
+  {0, 0, 0},         // rainbow (changes by itself)
+  {0, 80, 255},      // calm: blue
+  {255, 180, 0},     // happy: yellow
+  {120, 0, 200},     // sleepy: purple
+  {255, 30, 30}      // excited: red
+};
+const int MOODS = 5;
+
+int mood = 0;
+bool wasTouched = false;
+
+void show(int r, int g, int b) {
+#if HAVE_RESISTORS
+  if (COMMON_ANODE) { r = 255 - r; g = 255 - g; b = 255 - b; }
+  analogWrite(RED_PIN, r);
+  analogWrite(GREEN_PIN, g);
+  analogWrite(BLUE_PIN, b);
+#endif
+}
+
+// hue 0..767 around the colour wheel
+void wheel(int h) {
+  h = h % 768;
+  if (h &lt; 256)      show(255 - h, h, 0);
+  else if (h &lt; 512) show(0, 255 - (h - 256), h - 256);
+  else              show(h - 512, 0, 255 - (h - 512));
+}
+
+void setup() {
+  pinMode(TOUCH_PIN, INPUT);
+#if HAVE_RESISTORS
+  pinMode(RED_PIN, OUTPUT);
+  pinMode(GREEN_PIN, OUTPUT);
+  pinMode(BLUE_PIN, OUTPUT);
+#endif
+  pinMode(LED_BUILTIN, OUTPUT);
+  Serial.begin(9600);
+  Serial.println("Mood lamp ready. Touch to change the mood.");
+  Serial.println("Mood: Rainbow");
+}
+
+void loop() {
+  bool touched = digitalRead(TOUCH_PIN) == HIGH;
+  if (touched &amp;&amp; !wasTouched) {
+    mood = (mood + 1) % MOODS;
+    Serial.print("Mood: ");
+    Serial.println(moodName[mood]);
+    for (int i = 0; i &lt; mood; i++) {     // the board light blinks the mood number
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(80);
+      digitalWrite(LED_BUILTIN, LOW);
+      delay(80);
+    }
+  }
+  wasTouched = touched;
+
+  if (mood == 0) {
+    static int hue = 0;
+    wheel(hue);
+    hue = (hue + 2) % 768;
+    delay(15);
+  } else {
+    show(moodColour[mood][0], moodColour[mood][1], moodColour[mood][2]);
+    delay(15);
+  }
+}
+</textarea></div></section><section class="block"><h2>What you should see</h2><p>A slowly changing rainbow. Each touch picks a steady mood colour. After the fifth touch the rainbow is back.</p><h2>How it works</h2><ul class="plain"><li>analogWrite(pin, 0 to 255) switches the pin on and off thousands of times a second. 255 is always on, 0 is off, and the numbers between give a dimmer LED. Only pins marked with ~ on the Nano can do this: D3, D5, D6, D9, D10 and D11.</li><li>Mix red 255, green 180, blue 0 and you get yellow. The mood table keeps one colour per mood.</li><li>wheel() walks around the colour wheel: red fades into green, green into blue, blue back to red.</li></ul></section><section class="block"><h2>Look it up</h2><p>Every command in this sketch is explained on the Arduino site:</p><div class="pillrow"><a class="pill blue" target="_blank" rel="noopener" href="https://docs.arduino.cc/language-reference/en/functions/analog-io/analogWrite/">analogWrite()</a><a class="pill blue" target="_blank" rel="noopener" href="https://docs.arduino.cc/language-reference/en/functions/communication/serial/">Serial</a></div><p>More like this: <a href="learn.html">projects and tutorials online</a>.</p></section><section class="block"><h2>Try this</h2><ul class="plain"><li>Add a sixth mood with your favourite colour.</li><li>Make the rainbow slower or faster.</li><li>Make the lamp go dark in a dark room, using the light sensor from Project 4.</li></ul></section><section class="block"><h2>If it does not work</h2><details><summary>The colours look wrong or inverted.</summary><p>Your LED may be a common anode type. Connect the long leg to 5V instead of ground and set COMMON_ANODE to true.</p></details><details><summary>One colour is missing.</summary><p>That leg is in the wrong row, or the resistor does not share a row with it.</p></details><details><summary>The breadboard part does not work.</summary><p>The five holes in one short row are joined together. Make sure the LED leg and the resistor leg share a row, and not a column of the other half.</p></details></section><button class="btn go built" data-built="p10">I built it!</button><div class="nextrow"><a class="btn" href="water-tank.html">← 9. Water tank monitor</a><a class="btn" href="reaction-game.html">11. Reaction game →</a></div></div><footer>SPV Electronics Laboratory · Practical learning resource. All sketches are for the Arduino Nano.</footer><script>(function () {
+  var KEY = 'chipcampkit.built';
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
+  function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var built = load();
+  document.querySelectorAll('.code').forEach(function (box) {
+    var text = box.querySelector('textarea').value;
+    box.querySelector('[data-copy]').onclick = function (ev) {
+      var b = ev.currentTarget;
+      var done = function () { b.textContent = 'Copied!'; setTimeout(function () { b.textContent = 'Copy code'; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+      else fallback();
+      function fallback() { var t = box.querySelector('textarea'); t.hidden = false; t.select(); document.execCommand('copy'); t.hidden = true; done(); }
+    };
+    box.querySelector('[data-dl]').onclick = function () {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+      a.download = box.getAttribute('data-file');
+      document.body.appendChild(a); a.click(); a.remove();
+    };
+  });
+  var btn = document.querySelector('[data-built]');
+  if (btn) {
+    var id = btn.getAttribute('data-built');
+    var paint = function () { btn.textContent = built[id] ? 'Built it! (tap to undo)' : 'I built it!'; };
+    btn.onclick = function () { if (built[id]) delete built[id]; else built[id] = 1; save(built); paint(); };
+    paint();
+  }
+  var count = document.getElementById('count');
+  if (count) {
+    var n = 0;
+    Object.keys(built).forEach(function (k) { var c = document.getElementById('c-' + k); if (c) { c.classList.add('is-done'); n++; } });
+    count.textContent = n + ' of 15 built';
+  }
+})();
+</script></body></html>

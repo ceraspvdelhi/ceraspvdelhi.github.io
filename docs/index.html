@@ -1,0 +1,150 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SPV Engineering Lab · 15 projects</title><meta name="description" content="Fifteen Arduino projects for the SPV Electronics Laboratory."><style>@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@600;700;800&family=JetBrains+Mono:wght@400;700&display=swap");
+:root{
+  --ink:#2b2f4a; --soft:#69709a; --bg:#eef3ff; --card:#fff; --line:#d3def6;
+  --purple:#7c4dff; --blue:#4c97ff; --green:#3fb950; --gold:#fdb515; --pc:#7c4dff;
+  --d:"Fredoka","Arial Rounded MT Bold","Trebuchet MS",system-ui,sans-serif;
+  --b:"Nunito","Segoe UI","Trebuchet MS",system-ui,sans-serif;
+  --m:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--b);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--purple)}
+h1,h2,h3{font-family:var(--d);font-weight:600;line-height:1.15;margin:0 0 .4em}
+h2{font-size:28px;margin-top:1.6em}
+h3{font-size:20px}
+p{margin:.5em 0}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+.top{background:linear-gradient(90deg,#7c4dff,#4c97ff);color:#fff;box-shadow:0 3px 0 rgba(0,0,0,.12)}
+.top .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.brand{font-family:var(--d);font-size:22px;font-weight:600;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;margin-right:auto}
+.brand i{width:12px;height:12px;border-radius:4px;display:block}
+.logo{display:grid;grid-template-columns:repeat(2,12px);gap:3px;transform:rotate(-8deg)}
+.nav a{font-family:var(--d);font-size:17px;color:#fff;text-decoration:none;padding:6px 14px;border-radius:14px;background:rgba(255,255,255,.18);margin-left:6px;display:inline-block}
+.nav a:hover,.nav a[aria-current]{background:#fff;color:var(--purple)}
+.hero{display:grid;grid-template-columns:1fr 200px;gap:16px;align-items:center;padding:34px 0 10px}
+.hero h1{font-size:44px}
+.hero p.lead{font-size:20px;color:var(--soft);max-width:30em}
+.hero .art svg{width:100%;height:auto;display:block}
+.pillrow{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.pill{font-family:var(--d);font-size:14px;border-radius:99px;padding:3px 12px;background:#fff;border:2px solid var(--line);color:var(--ink);white-space:nowrap}
+.pill.warn{background:#fff3d6;border-color:#f5c25a}
+.pill.ok{background:#e2f7e6;border-color:#9fdcab}
+.pill.blue{background:#e5f0ff;border-color:#a9c9ff}
+.btn{border:2px solid #d3def6;cursor:pointer;font-family:var(--d);font-weight:500;font-size:16px;padding:8px 16px;border-radius:14px;background:#fff;color:var(--ink);box-shadow:0 3px 0 #c9d6f2;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #c9d6f2}
+.btn.go{background:var(--green);border-color:#2c8f3b;color:#fff;box-shadow:0 4px 0 #2c8f3b}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:16px 0 30px}
+.card{background:#fff;border:2px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:transform .12s;box-shadow:0 4px 0 var(--line)}
+.card:hover{transform:translateY(-3px)}
+.card .band{background:var(--pc);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.card .num{font-family:var(--d);font-size:30px;font-weight:600;background:rgba(255,255,255,.25);width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:none}
+.card .band h3{margin:0;font-size:20px;color:#fff}
+.card .body{padding:12px 16px 16px;flex:1;display:flex;flex-direction:column;gap:10px}
+.card .body p{margin:0;font-size:15.5px}
+.card .done{margin-left:auto;font-size:22px;display:none}
+.card.is-done .done{display:block}
+section.block{background:#fff;border:2px solid var(--line);border-radius:20px;padding:6px 22px 18px;margin:18px 0;box-shadow:0 4px 0 var(--line)}
+section.block h2{margin-top:.7em;font-size:25px}
+.banner{background:var(--pc);color:#fff;border-radius:0 0 28px 28px;padding:26px 0 24px;box-shadow:0 5px 0 rgba(0,0,0,.14)}
+.banner .wrap{display:flex;gap:18px;align-items:center}
+.banner .num{font-family:var(--d);font-size:54px;font-weight:600;background:rgba(255,255,255,.25);width:86px;height:86px;border-radius:26px;display:grid;place-items:center;flex:none}
+.banner h1{margin:0;font-size:38px}
+.banner p{margin:4px 0 0;font-size:19px;opacity:.95}
+.banner .pill{border-color:transparent}
+ol.steps{padding:0;margin:.6em 0;list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:8px 0 8px 52px;min-height:46px}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:6px;width:36px;height:36px;border-radius:12px;background:var(--pc);color:#fff;font-family:var(--d);font-size:20px;display:grid;place-items:center}
+ul.plain{margin:.4em 0;padding-left:22px}
+ul.plain li{margin:.25em 0}
+ul.parts{list-style:none;padding:0;margin:.4em 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+ul.parts li{background:#f4f7ff;border:2px solid var(--line);border-radius:14px;padding:8px 12px;display:flex;gap:10px;align-items:center}
+ul.parts li b{font-family:var(--d);background:var(--pc);color:#fff;border-radius:10px;padding:0 9px;min-width:30px;text-align:center}
+ul.parts li.miss{background:#fff3d6;border-color:#f5c25a}
+.note{background:#fff3d6;border:2px solid #f5c25a;border-radius:16px;padding:10px 16px;margin:12px 0}
+.tip{background:#e5f0ff;border:2px solid #a9c9ff;border-radius:16px;padding:10px 16px;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:15.5px;margin:.6em 0}
+th,td{border:2px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#f4f7ff;font-family:var(--d);font-weight:500}
+.diagram{overflow-x:auto;background:#f9fbff;border:2px solid var(--line);border-radius:16px;padding:6px}
+.diagram svg{display:block;min-width:620px;width:100%;height:auto}
+.code{border:2px solid var(--line);border-radius:16px;overflow:hidden;margin:12px 0;background:#fff}
+.code .bar{display:flex;gap:8px;align-items:center;padding:8px 12px;background:#f4f7ff;border-bottom:2px solid var(--line);flex-wrap:wrap}
+.code .bar b{font-family:var(--d);font-weight:500;margin-right:auto}
+.code pre{margin:0;padding:12px 14px;overflow:auto;max-height:520px;font-family:var(--m);font-size:13.5px;line-height:1.5;color:#2b2f4a;tab-size:2}
+.t-c{color:#4f8a5b;font-style:italic}.t-k{color:#7c4dff;font-weight:700}.t-n{color:#d9731a}.t-s{color:#c0392b}.t-f{color:#1d7fbf}
+details{background:#f4f7ff;border:2px solid var(--line);border-radius:14px;margin:8px 0;padding:8px 14px}
+details summary{font-family:var(--d);cursor:pointer}
+.nextrow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:26px 0 40px}
+.built{margin-top:10px}
+footer{text-align:center;color:var(--soft);font-size:14px;padding:20px 18px 40px}
+.parttiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.ptile{background:#fff;border:2px solid var(--line);border-radius:18px;padding:12px 14px}
+.ptile svg{width:100%;height:84px;background:#f4f7ff;border-radius:12px;margin-bottom:8px}
+.ptile h3{margin:0 0 4px;font-size:19px}
+.ptile p{margin:.25em 0;font-size:15px}
+@media(max-width:640px){
+  .hero{grid-template-columns:1fr}.hero .art{max-width:150px}.hero h1{font-size:34px}
+  .banner .wrap{flex-direction:column;align-items:flex-start}.banner h1{font-size:30px}
+  .nav a{margin:4px 4px 0 0}
+}
+@media print{.top,.nextrow,.btn,footer{display:none}}
+
+ul.ticks{list-style:none;padding:0;margin:.4em 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px}ul.ticks li{background:#f4f7ff;border:2px solid var(--line);border-radius:12px;padding:6px 10px}ul.ticks input{width:20px;height:20px;vertical-align:middle;accent-color:var(--pc)}ul.ticks label{cursor:pointer}.soft{color:var(--soft);font-size:15px}
+.nav a{margin-bottom:2px}
+
+code{font-family:var(--m);font-size:13.5px;background:#f4f7ff;border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+
+/* SPV academic laboratory interface — custom theme */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+:root{--ink:#17243b;--soft:#556479;--bg:#f5f7fa;--card:#fff;--line:#dce3ea;--purple:#17395e;--blue:#24628d;--green:#14644e;--gold:#b78a4b;--pc:#20547a;--d:'DM Sans',Arial,sans-serif;--b:'DM Sans',Arial,sans-serif;--m:'IBM Plex Mono',monospace;color-scheme:light}
+html{scroll-behavior:smooth} body{font-size:15.5px;line-height:1.68} a{color:#20547a} .wrap{max-width:1140px;padding:0 28px}
+.top{background:#142a43;box-shadow:none;border-bottom:3px solid #b9a079} .top .wrap{padding-top:16px;padding-bottom:16px;gap:26px}
+.brand{font-size:16px;font-weight:700;letter-spacing:.035em;text-transform:uppercase;line-height:1.35;max-width:460px}.brand:before{content:'SPV';background:#e8e1d2;color:#142a43;font-size:12px;border:1px solid #b9a079;border-radius:2px;padding:8px 9px;letter-spacing:.12em;margin-right:12px}.brand .logo{display:none}
+.nav{margin-left:auto}.nav a{font-family:var(--b);font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;background:transparent;border:1px solid transparent;padding:8px 11px;border-radius:4px;margin-left:1px}.nav a:hover,.nav a[aria-current]{background:#fff;color:#142a43}
+h1,h2,h3{font-family:var(--d);letter-spacing:-.035em}h2{font-size:25px}h3{font-size:18px}.hero{grid-template-columns:1fr;padding:70px 0 38px;border-bottom:1px solid var(--line);margin-bottom:30px}.hero h1{font-size:clamp(34px,4vw,54px);max-width:800px}.hero p.lead{font-size:17px;max-width:680px}.hero .art{display:none}.hero:before{content:'SARDAR PATEL VIDYALAYA  /  COMPUTER SCIENCE LABORATORY';display:block;color:#8b6940;font-size:11px;font-weight:700;letter-spacing:.17em;grid-column:1;margin-bottom:15px}
+.btn,.btn.go{font-family:var(--b);border-radius:5px;box-shadow:none;font-size:13px;letter-spacing:.012em;font-weight:700;padding:10px 15px}.btn.go{background:#184466;border-color:#184466;box-shadow:none}.btn:hover{transform:none;background:#e5edf3}.btn.go:hover{background:#0f304a}.btn:active{transform:none;box-shadow:none}
+.grid{grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}.card{border:1px solid var(--line);border-radius:6px;box-shadow:0 2px 8px rgba(17,39,60,.04);transition:box-shadow .2s,border-color .2s}.card:hover{transform:none;box-shadow:0 8px 23px rgba(17,39,60,.1);border-color:#b1c1d1}.card .band{background:#edf2f6;color:#172b46;padding:18px;gap:13px;border-bottom:1px solid var(--line)}.card .num{font:600 13px var(--m);color:#184466;background:#dce6ee;border-radius:4px;width:40px;height:40px}.card .band h3{color:#172b46;font-size:18px}.card .body{padding:16px 18px}.card .body p{font-size:14px}.card .done{font-size:17px;color:#14644e}
+.pill{border:1px solid #d5dee7;border-radius:3px;font:500 11px var(--b);background:#f7f9fb;color:#45576d;padding:5px 8px}.pill.ok,.pill.blue,.pill.warn{background:#f7f9fb;border-color:#d5dee7;color:#45576d}.banner{background:#1b3957;border-radius:0;padding:32px 0;box-shadow:none;border-bottom:4px solid #b9a079}.banner .num{font:600 28px var(--m);border-radius:5px;width:80px;height:80px;background:#2a4d6d}.banner h1{font-size:35px}.banner p{font-size:16px}
+section.block{border:1px solid var(--line);border-radius:6px;box-shadow:none;padding:16px 25px 24px;margin:22px 0}section.block h2{font-size:23px}
+ol.steps li:before{background:#1b486b;border-radius:3px;font:600 15px var(--m)}ul.parts li,ul.ticks li{background:#f6f8fa;border:1px solid var(--line);border-radius:4px}ul.parts li b{background:#1b486b;border-radius:3px;font:600 13px var(--m)}.note,.tip{border-radius:4px;border-width:1px;padding:14px 18px}.note{background:#faf6ef;border-color:#ddcdb0}.tip{background:#edf4f8;border-color:#bfcedd}.diagram,.code,details,.ptile{border-radius:5px;border-width:1px;box-shadow:none}.diagram{background:#fff}.code .bar{background:#f0f4f7;border-bottom-width:1px}.code pre{color:#1c344b}.ptile{border:1px solid var(--line)}.ptile svg{border-radius:3px}th,td{border:1px solid var(--line);padding:11px 12px}th{background:#f0f4f7;font-weight:700}details{background:#f4f7fa;border-color:#dce3ea}code{border-radius:3px}footer{border-top:1px solid var(--line);margin-top:40px;text-align:left;font-size:12px} 
+@media(max-width:680px){.wrap{padding:0 18px}.hero{padding:42px 0 24px}.top .wrap{gap:10px}.brand{font-size:13px}.nav{margin-left:0}.nav a{font-size:11px;padding:7px}.banner .wrap{flex-direction:row;align-items:center}.banner .num{height:64px;width:64px;font-size:21px}.banner h1{font-size:25px}}
+@media print{.top{display:none}.card,section.block{break-inside:avoid}}
+</style></head><body><header class="top"><div class="wrap"><a class="brand" href="index.html"><span class="logo"><i style="background:#ffbf00"></i><i style="background:#4c97ff"></i><i style="background:#3fb950"></i><i style="background:#ff6680"></i></span>SPV Engineering Lab</a><nav class="nav"><a href="index.html" aria-current="page">Projects</a><a href="start.html">Getting started</a><a href="box.html">Equipment</a><a href="buy.html">Components</a><a href="learn.html">Learn more</a></nav></div></header><div class="wrap"><div class="hero"><div><h1>Electronics & Embedded Systems · 15 Projects</h1><p class="lead">A structured introduction to Arduino programming, electronic circuits and sensor-based systems. Explore 15 progressive practical projects.</p><div class="pillrow"><a class="btn go" href="start.html">Set up the Arduino IDE</a><a class="btn" href="box.html">Equipment and components</a></div><p><span class="pill" id="count">0 of 15 built</span></p></div></div><div class="note"><b>One thing is not in the box:</b> resistors. Projects 2 and 10 need a few 220 Ω resistors from any electronics shop, and projects 3, 4 and 15 can use a real LED if you have them. Every project tells you before you start and shows what to do without them.</div><div class="grid"><a class="card" id="c-p01" href="hello-nano.html" style="--pc:#7c4dff"><div class="band"><span class="num">1</span><h3>Hello Nano</h3><span class="done">✓</span></div><div class="body"><p>Configure a digital output and examine serial communication.</p><div class="pillrow" style="margin:0"><span class="pill ok">No extra parts</span><span class="pill">10 min</span><span class="pill">★☆☆</span></div></div></a><a class="card" id="c-p02" href="traffic-light.html" style="--pc:#ef4444"><div class="band"><span class="num">2</span><h3>Traffic light</h3><span class="done">✓</span></div><div class="body"><p>Implement sequential LED control and timing logic.</p><div class="pillrow" style="margin:0"><span class="pill warn">Needs 220 Ω resistors</span><span class="pill">25 min</span><span class="pill">★★☆</span></div></div></a><a class="card" id="c-p03" href="touch-lamp.html" style="--pc:#06b6d4"><div class="band"><span class="num">3</span><h3>Touch lamp</h3><span class="done">✓</span></div><div class="body"><p>Implement capacitive touch input and output state control.</p><div class="pillrow" style="margin:0"><span class="pill blue">Resistor optional</span><span class="pill">15 min</span><span class="pill">★☆☆</span></div></div></a><a class="card" id="c-p04" href="night-light.html" style="--pc:#4f46e5"><div class="band"><span class="num">4</span><h3>Night light</h3><span class="done">✓</span></div><div class="body"><p>A lamp that switches itself on when the room goes dark.</p><div class="pillrow" style="margin:0"><span class="pill blue">Resistor optional</span><span class="pill">20 min</span><span class="pill">★★☆</span></div></div></a><a class="card" id="c-p05" href="buzzer-doorbell.html" style="--pc:#f59e0b"><div class="band"><span class="num">5</span><h3>Which buzzer? And a doorbell</h3><span class="done">✓</span></div><div class="body"><p>Find out what kind of buzzer you have, then make a tune.</p><div class="pillrow" style="margin:0"><span class="pill ok">No extra parts</span><span class="pill">20 min</span><span class="pill">★☆☆</span></div></div></a><a class="card" id="c-p06" href="burglar-alarm.html" style="--pc:#dc2626"><div class="band"><span class="num">6</span><h3>Burglar alarm</h3><span class="done">✓</span></div><div class="body"><p>Create a proximity-based intrusion alert system.</p><div class="pillrow" style="margin:0"><span class="pill ok">No extra parts</span><span class="pill">20 min</span><span class="pill">★★☆</span></div></div></a><a class="card" id="c-p07" href="parking-sensor.html" style="--pc:#0891b2"><div class="band"><span class="num">7</span><h3>Parking sensor</h3><span class="done">✓</span></div><div class="body"><p>Translate distance measurements into audible feedback.</p><div class="pillrow" style="margin:0"><span class="pill ok">No extra parts</span><span class="pill">25 min</span><span class="pill">★★☆</span></div></div></a><a class="card" id="c-p08" href="rain-alarm.html" style="--pc:#2563eb"><div class="band"><span class="num">8</span><h3>Rain alarm</h3><span class="done">✓</span></div><div class="body"><p>Hang it out of the window and it tells you when the first drop falls.</p><div class="pillrow" style="margin:0"><span class="pill ok">No extra parts</span><span class="pill">20 min</span><span class="pill">★★☆</span></div></div></a><a class="card" id="c-p09" href="water-tank.html" style="--pc:#0d9488"><div class="band"><span class="num">9</span><h3>Water tank monitor</h3><span class="done">✓</span></div><div class="body"><p>Empty, low, half or full, shown on the screen and with a beep.</p><div class="pillrow" style="margin:0"><span class="pill ok">No extra parts</span><span class="pill">25 min</span><span class="pill">★★☆</span></div></div></a><a class="card" id="c-p10" href="mood-lamp.html" style="--pc:#d946ef"><div class="band"><span class="num">10</span><h3>Mood lamp</h3><span class="done">✓</span></div><div class="body"><p>A colour-changing lamp. Touch it to change its mood.</p><div class="pillrow" style="margin:0"><span class="pill warn">Needs 220 Ω resistors</span><span class="pill">35 min</span><span class="pill">★★★</span></div></div></a><a class="card" id="c-p11" href="reaction-game.html" style="--pc:#f97316"><div class="band"><span class="num">11</span><h3>Reaction game</h3><span class="done">✓</span></div><div class="body"><p>Measure response time using event timing and digital input.</p><div class="pillrow" style="margin:0"><span class="pill ok">No extra parts</span><span class="pill">20 min</span><span class="pill">★★☆</span></div></div></a><a class="card" id="c-p12" href="light-theremin.html" style="--pc:#8b5cf6"><div class="band"><span class="num">12</span><h3>Light theremin</h3><span class="done">✓</span></div><div class="body"><p>Play music with your hand, without touching anything.</p><div class="pillrow" style="margin:0"><span class="pill ok">No extra parts</span><span class="pill">20 min</span><span class="pill">★★★</span></div></div></a><a class="card" id="c-p13" href="secret-knock.html" style="--pc:#be185d"><div class="band"><span class="num">13</span><h3>Secret knock lock</h3><span class="done">✓</span></div><div class="body"><p>Short, short, long. Only you know the knock that opens it.</p><div class="pillrow" style="margin:0"><span class="pill ok">No extra parts</span><span class="pill">30 min</span><span class="pill">★★★</span></div></div></a><a class="card" id="c-p14" href="people-counter.html" style="--pc:#16a34a"><div class="band"><span class="num">14</span><h3>People counter</h3><span class="done">✓</span></div><div class="body"><p>Count everyone who walks through, and ring when it gets crowded.</p><div class="pillrow" style="margin:0"><span class="pill ok">No extra parts</span><span class="pill">20 min</span><span class="pill">★★☆</span></div></div></a><a class="card" id="c-p15" href="hand-wave-switch.html" style="--pc:#0284c7"><div class="band"><span class="num">15</span><h3>Hand-wave switch</h3><span class="done">✓</span></div><div class="body"><p>Implement contactless switching using sensor measurements.</p><div class="pillrow" style="margin:0"><span class="pill blue">Resistor optional</span><span class="pill">25 min</span><span class="pill">★★★</span></div></div></a></div></div><footer>SPV Electronics Laboratory · Practical learning resource. All sketches are for the Arduino Nano.</footer><script>(function () {
+  var KEY = 'chipcampkit.built';
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
+  function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var built = load();
+  document.querySelectorAll('.code').forEach(function (box) {
+    var text = box.querySelector('textarea').value;
+    box.querySelector('[data-copy]').onclick = function (ev) {
+      var b = ev.currentTarget;
+      var done = function () { b.textContent = 'Copied!'; setTimeout(function () { b.textContent = 'Copy code'; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+      else fallback();
+      function fallback() { var t = box.querySelector('textarea'); t.hidden = false; t.select(); document.execCommand('copy'); t.hidden = true; done(); }
+    };
+    box.querySelector('[data-dl]').onclick = function () {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+      a.download = box.getAttribute('data-file');
+      document.body.appendChild(a); a.click(); a.remove();
+    };
+  });
+  var btn = document.querySelector('[data-built]');
+  if (btn) {
+    var id = btn.getAttribute('data-built');
+    var paint = function () { btn.textContent = built[id] ? 'Built it! (tap to undo)' : 'I built it!'; };
+    btn.onclick = function () { if (built[id]) delete built[id]; else built[id] = 1; save(built); paint(); };
+    paint();
+  }
+  var count = document.getElementById('count');
+  if (count) {
+    var n = 0;
+    Object.keys(built).forEach(function (k) { var c = document.getElementById('c-' + k); if (c) { c.classList.add('is-done'); n++; } });
+    count.textContent = n + ' of 15 built';
+  }
+})();
+</script></body></html>
