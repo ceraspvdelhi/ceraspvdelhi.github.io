@@ -1,0 +1,39 @@
+
+/* CERA LAB — academic design system | v1.0 */
+:root{--ink:#20272d;--soft:#657079;--bg:#f7f7f5;--card:#ffffff;--line:#dfe2e3;--purple:#a94922;--blue:#a94922;--green:#37765c;--gold:#b0782d;--pc:#a94922;--d:Inter,"Segoe UI",Arial,sans-serif;--b:Inter,"Segoe UI",Arial,sans-serif;--m:"JetBrains Mono",Consolas,monospace}
+html{scroll-behavior:smooth}body{font-family:var(--b);font-size:15px;background:var(--bg);line-height:1.65;color:var(--ink)}
+a{color:#a94922}a:hover{color:#843619}h1,h2,h3{font-family:var(--d);font-weight:700;letter-spacing:-.035em;line-height:1.25}h1{letter-spacing:-.045em}
+h2{font-size:25px}h3{font-size:19px}.wrap{max-width:1120px;padding-left:24px;padding-right:24px}
+.top{background:#20272d;color:white;box-shadow:none;border-bottom:3px solid #a94922}.top .wrap{padding-top:15px;padding-bottom:15px;gap:18px}.brand{font-family:var(--d);font-weight:750;font-size:19px;letter-spacing:-.025em;gap:12px}.brand .logo{display:none}.brand:before{content:"C";background:#a94922;color:#fff;font-size:18px;font-weight:800;display:grid;place-items:center;width:35px;height:35px;border-radius:5px}
+.nav a{font-family:var(--b);font-size:13px;font-weight:650;background:transparent;border-radius:5px;padding:8px 11px;margin-left:0;color:#d8dfe2}.nav a:hover,.nav a[aria-current]{background:#344047;color:white}.hero{padding-top:55px;padding-bottom:35px;grid-template-columns:minmax(0,1fr) 200px;gap:22px}.hero h1{font-size:clamp(30px,4vw,49px);max-width:760px}.hero p.lead{font-size:17px;color:#606c73;max-width:660px}
+.pillrow{gap:8px}.pill{font-family:var(--b);font-size:11px;font-weight:650;text-transform:uppercase;letter-spacing:.05em;border-radius:4px;background:#f0f1f1;border:1px solid #dfe2e3;color:#535f66;padding:4px 8px}.pill.warn{background:#f7f0e9;border-color:#edd9cb;color:#944524}.pill.ok{background:#edf3ef;border-color:#cfe3d6;color:#36634d}.pill.blue{background:#eef1f3;border-color:#dbe3e7;color:#506571}
+.btn{font-family:var(--b);font-size:13px;font-weight:700;border:1px solid #cfd5d7;border-radius:5px;box-shadow:none;background:#fff;color:#283138;padding:10px 15px}.btn:hover{background:#f3f4f4;transform:none;box-shadow:none}.btn.go,.btn.primary{background:#a94922;color:#fff;border-color:#a94922}.btn.go:hover,.btn.primary:hover{background:#8b3b1d;color:white}
+.grid{gap:18px}.card{background:white;border:1px solid #dfe2e3;box-shadow:0 3px 12px rgba(25,34,40,.04);border-radius:8px;overflow:hidden;transition:box-shadow .2s ease, transform .2s ease}.card:hover{transform:translateY(-3px);box-shadow:0 9px 24px rgba(25,34,40,.10);border-color:#d6b6a8}.card .band{background:#fff;border-bottom:1px solid #eceeee;color:var(--ink)}.card .band h3{color:var(--ink);font-size:18px}.card .num{background:#a94922!important;color:#fff!important;border-radius:4px!important}.card .body{background:white}.card .body p{color:#5d666b}.card .done{color:#37765c}
+.banner{background:#eef0f0;border:1px solid #dfe2e3;color:var(--ink);border-radius:7px}.note{background:#faf4ef;border:1px solid #e7d5c7;border-left:4px solid #a94922;border-radius:5px;padding:14px 18px}.tip{background:#f0f3f4;border:1px solid #dbe1e5;border-left:4px solid #637985;border-radius:5px;padding:14px 18px}
+ol.steps li::before{background:#a94922;border-radius:4px;font-size:15px;font-family:var(--b);font-weight:700;width:31px;height:31px}.parts li,ul.parts li{border:1px solid #e1e3e4;background:#f8f9f8;border-radius:5px}.parts li b,ul.parts li b{border-radius:4px;background:#a94922}.parts li.miss,ul.parts li.miss{background:#faf4ef;border-color:#e8d4c5}
+th,td{border:1px solid #dfe2e3}th{background:#f2f3f2;font-family:var(--b);font-weight:700}.diagram{background:#fff;border:1px solid #dce1e2;border-radius:6px}.code{border:1px solid #d8dedf;border-radius:6px}.code .bar{background:#f0f2f2;border-bottom:1px solid #d8dedf}.code .bar b{font-family:var(--m);font-size:12px}.code pre{font-size:12.5px;color:#293138}.t-k{color:#8b452b}.t-f{color:#42677d}.t-n{color:#8a6030}
+details{background:#f6f7f6;border:1px solid #dfe2e3;border-radius:5px}details summary{font-family:var(--b);font-weight:700}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #a94922;outline-offset:3px}
+footer,.footer{border-top:1px solid #dde0e1;color:#6b7479}svg{max-width:100%}
+.cera-label{display:inline-block;color:#a94922;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}.cera-subtitle{font-size:12px;color:#a4adb0;letter-spacing:.025em}.cera-footer{font-size:12px;padding:26px 0 35px;color:#717b81;border-top:1px solid #dfe2e3;margin-top:40px}.cera-footer strong{color:#353f45}
+@media(max-width:760px){.wrap{padding-left:16px;padding-right:16px}.top .wrap{gap:9px}.nav{display:flex;flex-wrap:wrap;gap:2px}.nav a{font-size:12px;padding:6px 8px}.hero{display:block;padding-top:36px}.hero h1{font-size:33px}.hero p.lead{font-size:15px}.hero .art{display:none}}
+
+/* CERA four-pillar overview */
+.cera-domains{margin:32px 0 30px}.cera-section-heading{max-width:700px;margin-bottom:20px}.cera-section-heading p,.cera-project-intro p{color:#657079;margin:5px 0 0}.cera-domain-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.cera-domain-grid article{background:#fff;border:1px solid #dfe2e3;border-top:3px solid #a94922;border-radius:5px;padding:20px 17px;min-height:175px}.cera-domain-grid h3{font-size:19px;margin:12px 0 8px}.cera-domain-grid p{color:#434c52;font-size:13px;line-height:1.4;margin:0 0 12px}.cera-domain-grid small{color:#68747b;font-size:11px;line-height:1.5}.cera-domain-id{font:700 11px Consolas,monospace;letter-spacing:.09em;color:#a94922}.cera-project-intro{margin-top:38px;margin-bottom:18px;padding-top:24px;border-top:1px solid #dfe2e3}.cera-project-intro h2{margin:3px 0 0}@media(max-width:900px){.cera-domain-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.cera-domain-grid{grid-template-columns:1fr}.cera-domain-grid article{min-height:auto}}
+
+/* SPV CERA Lab palette refinement — load after site.css */
+:root{--spv-rust:#A94922;--spv-silver:#E4E4E4;--spv-charcoal:#20272D;--spv-ivory:#FAFAF8;--spv-slate:#596773}
+body{background:var(--spv-ivory)}
+.top{background:var(--spv-charcoal);border-bottom:4px solid var(--spv-rust)}
+.banner{background:var(--spv-silver)}
+.diagram{background:#FFFFFF;border-color:#D8DDDF}
+.diagram svg{max-width:100%;height:auto}
+code,kbd{font-family:var(--m)}
+::selection{background:#EAC7B9;color:#20272D}
+@media print{.top{background:#fff!important;color:#20272D!important;border-bottom:2px solid #A94922}.nav{display:none}.card{box-shadow:none}}
+
+/* SPV CERA Lab: clear text and consistent school colours */
+:root{--spv-rust:#A94922;--spv-grey:#E4E4E4;--spv-charcoal:#20272D;--spv-paper:#FAFAF8;}
+body{font-size:16px;background:var(--spv-paper);color:var(--spv-charcoal)}
+.top{background:var(--spv-charcoal);border-bottom:3px solid var(--spv-rust)}
+.card,.block{border-color:var(--spv-grey)}
+.nav a:focus-visible,.btn:focus-visible,a:focus-visible{outline:3px solid var(--spv-rust);outline-offset:3px}

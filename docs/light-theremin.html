@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>12. Light theremin · SPV CERA Lab</title><meta content="Play music with your hand, without touching anything." name="description"/><link href="assets/site.css" rel="stylesheet"/><link href="assets/cera-theme.css" rel="stylesheet"/></head><body style="--pc:#a94922"><header class="top"><div class="wrap"><a class="brand" href="index.html">SPV  /  CERA LAB</a><nav class="nav"><a href="index.html">Projects</a><a href="start.html">Start here</a><a href="box.html">Equipment</a><a href="buy.html">Components</a><a href="learn.html">More learning</a></nav></div></header><div class="banner"><div class="wrap"><div class="num">12</div><div><h1>Light theremin</h1><p>Play music with your hand, without touching anything.</p><div class="pillrow"><span class="pill ok">No extra parts needed</span><span class="pill">20 min</span><span class="pill">Level ★★★</span></div></div></div></div><div class="wrap"><section class="block"><h2>What you will make</h2><p>A theremin is a real instrument you play by moving your hands near it. This one reads the light. Cover the sensor and the pitch falls, uncover it and the pitch rises. It sounds best on a passive buzzer. An active buzzer only gives a beeper that changes speed.</p></section><section class="block"><h2>What you need</h2><ul class="parts"><li class=""><b>1</b>Arduino Nano + base board</li><li class=""><b>1</b>Light sensor module</li><li class=""><b>1</b>Buzzer (passive works best)</li><li class=""><b>1</b>Breadboard</li><li class=""><b>5</b>Jumpers: 2 male-female, 3 female-female</li></ul><p class="soft">Each part is described on <a href="box.html">Equipment</a>.</p></section><section class="block"><h2>Build it</h2><ol class="steps"><li>Unplug the USB. Wire the buzzer to D8 and the light sensor to A0, as in Projects 4 and 5.</li><li>Upload and open the Serial Monitor to see the numbers for covered and uncovered.</li><li>Put those numbers in LOW_READING and HIGH_READING, and upload again.</li><li>If you found out in Project 5 that you have an active buzzer, set ACTIVE_BUZZER to true.</li></ol><h2>Wiring</h2><div class="diagram"><svg aria-label="Wiring diagram" role="img" viewbox="0 0 760 334" xmlns="http://www.w3.org/2000/svg"><text fill="#69709a" font-family="Fredoka,sans-serif" font-size="12" x="12" y="14">NANO BASE BOARD</text><text fill="#69709a" font-family="Fredoka,sans-serif" font-size="12" text-anchor="end" x="748" y="14">PART</text><line stroke="#f59e0b" stroke-linecap="round" stroke-width="6" x1="96" x2="584.6" y1="51" y2="51"></line><rect fill="#fff" height="32" rx="10" stroke="#f59e0b" stroke-width="3" width="86" x="10" y="35"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="56">A0 S</text><rect fill="#f59e0b" height="32" rx="10" width="165.39999999999998" x="584.6" y="35"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="667.3" y="56">Light sensor · AO</text><line stroke="#e11d48" stroke-linecap="round" stroke-width="6" x1="96" x2="576.4" y1="113" y2="113"></line><rect fill="#fff" height="32" rx="10" stroke="#e11d48" stroke-width="3" width="86" x="10" y="97"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="118">A0 V</text><rect fill="#e11d48" height="32" rx="10" width="173.6" x="576.4" y="97"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="663.1999999999999" y="118">Light sensor · VCC</text><line stroke="#334155" stroke-linecap="round" stroke-width="6" x1="96" x2="576.4" y1="175" y2="175"></line><rect fill="#fff" height="32" rx="10" stroke="#334155" stroke-width="3" width="86" x="10" y="159"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="180">A0 G</text><rect fill="#334155" height="32" rx="10" width="173.6" x="576.4" y="159"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="663.1999999999999" y="180">Light sensor · GND</text><line stroke="#f59e0b" stroke-linecap="round" stroke-width="6" x1="96" x2="568.2" y1="237" y2="237"></line><rect fill="#fff" height="32" rx="6" stroke="#9aa6c8" stroke-width="2" width="76" x="294.1" y="221"></rect><circle cx="308.1" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="308.1" cy="243" fill="#9aa6c8" r="2"></circle><circle cx="320.1" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="320.1" cy="243" fill="#9aa6c8" r="2"></circle><circle cx="332.1" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="332.1" cy="243" fill="#9aa6c8" r="2"></circle><circle cx="344.1" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="344.1" cy="243" fill="#9aa6c8" r="2"></circle><circle cx="356.1" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="356.1" cy="243" fill="#9aa6c8" r="2"></circle><text fill="#69709a" font-family="Nunito,sans-serif" font-size="11" text-anchor="middle" x="332.1" y="267">breadboard</text><rect fill="#fff" height="32" rx="10" stroke="#f59e0b" stroke-width="3" width="86" x="10" y="221"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="242">D8 S</text><rect fill="#f59e0b" height="32" rx="10" width="181.79999999999998" x="568.2" y="221"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="659.1" y="242">Buzzer long leg (+)</text><line stroke="#334155" stroke-linecap="round" stroke-width="6" x1="96" x2="592.8" y1="299" y2="299"></line><rect fill="#fff" height="32" rx="6" stroke="#9aa6c8" stroke-width="2" width="76" x="306.4" y="283"></rect><circle cx="320.4" cy="293" fill="#9aa6c8" r="2"></circle><circle cx="320.4" cy="305" fill="#9aa6c8" r="2"></circle><circle cx="332.4" cy="293" fill="#9aa6c8" r="2"></circle><circle cx="332.4" cy="305" fill="#9aa6c8" r="2"></circle><circle cx="344.4" cy="293" fill="#9aa6c8" r="2"></circle><circle cx="344.4" cy="305" fill="#9aa6c8" r="2"></circle><circle cx="356.4" cy="293" fill="#9aa6c8" r="2"></circle><circle cx="356.4" cy="305" fill="#9aa6c8" r="2"></circle><circle cx="368.4" cy="293" fill="#9aa6c8" r="2"></circle><circle cx="368.4" cy="305" fill="#9aa6c8" r="2"></circle><text fill="#69709a" font-family="Nunito,sans-serif" font-size="11" text-anchor="middle" x="344.4" y="329">breadboard</text><rect fill="#fff" height="32" rx="10" stroke="#334155" stroke-width="3" width="86" x="10" y="283"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="304">D8 G</text><rect fill="#334155" height="32" rx="10" width="157.2" x="592.8" y="283"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="671.4" y="304">Buzzer short leg</text></svg></div><table><tr><th>From (base board)</th><th>Through</th><th>To</th><th>Jumper</th></tr><tr><td><b>A0 S</b></td><td>direct</td><td>Light sensor · AO</td><td>female-female</td></tr><tr><td><b>A0 V</b></td><td>direct</td><td>Light sensor · VCC</td><td>female-female</td></tr><tr><td><b>A0 G</b></td><td>direct</td><td>Light sensor · GND</td><td>female-female</td></tr><tr><td><b>D8 S</b></td><td>breadboard</td><td>Buzzer long leg (+)</td><td>male-female (female end on the base board)</td></tr><tr><td><b>D8 G</b></td><td>breadboard</td><td>Buzzer short leg</td><td>male-female (female end on the base board)</td></tr></table><h3>Tick each wire when it is done</h3><ul class="ticks"><li><label><input type="checkbox"/> A0 S → Light sensor · AO</label></li><li><label><input type="checkbox"/> A0 V → Light sensor · VCC</label></li><li><label><input type="checkbox"/> A0 G → Light sensor · GND</label></li><li><label><input type="checkbox"/> D8 S → Buzzer long leg (+)</label></li><li><label><input type="checkbox"/> D8 G → Buzzer short leg</label></li></ul><div class="note"><b>Before you plug in the USB:</b> every box above is ticked and no bare metal legs touch each other.</div><div class="tip">Always change wires with the USB unplugged. Orange is a signal wire, red is power (5 V) and dark is ground. Your real jumpers can be any colour.</div></section><section class="block"><h2>The code</h2><p>Open the Arduino IDE, delete everything in the window, paste this, and press Upload. Board settings are on the <a href="start.html">Start here</a> page.</p><div class="code" data-file="p12_light_theremin.ino"><div class="bar"><b>Light theremin</b><button class="btn small" data-copy="">Copy code</button><button class="btn small" data-dl="">Download .ino</button></div><pre><span class="t-c">// Project 12: Light theremin</span>
+<span class="t-c">// Light sensor module on A0, buzzer on D8 (long leg to the signal pin).</span>
+<span class="t-c">// Move your hand over the sensor to change the pitch.</span>
+<span class="t-c">//</span>
+<span class="t-c">// This needs the "passive" buzzer from Project 5 for different notes.</span>
+<span class="t-c">// With an active buzzer, set ACTIVE_BUZZER to true: you get a beeper that</span>
+<span class="t-c">// speeds up as it gets darker.</span>
+<span class="t-c">//</span>
+<span class="t-c">// Open the Serial Monitor and read the numbers when the sensor is covered</span>
+<span class="t-c">// and uncovered. Put them into LOW_READING and HIGH_READING.</span>
+
+<span class="t-k">const</span> <span class="t-k">bool</span> ACTIVE_BUZZER = <span class="t-k">false</span>;
+
+<span class="t-k">const</span> <span class="t-k">int</span> LDR_PIN = A0;
+<span class="t-k">const</span> <span class="t-k">int</span> BUZZER_PIN = <span class="t-n">8</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> LOW_READING = <span class="t-n">100</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> HIGH_READING = <span class="t-n">900</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> LOW_PITCH = <span class="t-n">200</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> HIGH_PITCH = <span class="t-n">2000</span>;
+
+<span class="t-k">void</span> <span class="t-f">setup</span>() {
+  <span class="t-f">pinMode</span>(BUZZER_PIN, <span class="t-k">OUTPUT</span>);
+  Serial.<span class="t-f">begin</span>(<span class="t-n">9600</span>);
+  Serial.<span class="t-f">println</span>(<span class="t-s">"Light theremin ready"</span>);
+}
+
+<span class="t-k">void</span> <span class="t-f">loop</span>() {
+  <span class="t-k">int</span> light = <span class="t-f">analogRead</span>(LDR_PIN);
+  light = <span class="t-f">constrain</span>(light, LOW_READING, HIGH_READING);
+
+  <span class="t-k">if</span> (ACTIVE_BUZZER) {
+    <span class="t-k">int</span> gap = <span class="t-f">map</span>(light, LOW_READING, HIGH_READING, <span class="t-n">50</span>, <span class="t-n">600</span>);
+    <span class="t-f">digitalWrite</span>(BUZZER_PIN, <span class="t-k">HIGH</span>);
+    <span class="t-f">delay</span>(<span class="t-n">40</span>);
+    <span class="t-f">digitalWrite</span>(BUZZER_PIN, <span class="t-k">LOW</span>);
+    <span class="t-f">delay</span>(gap);
+  } <span class="t-k">else</span> {
+    <span class="t-k">int</span> pitch = <span class="t-f">map</span>(light, LOW_READING, HIGH_READING, LOW_PITCH, HIGH_PITCH);
+    <span class="t-f">tone</span>(BUZZER_PIN, pitch);
+    <span class="t-f">delay</span>(<span class="t-n">30</span>);
+  }
+
+  Serial.<span class="t-f">println</span>(light);
+}
+</pre><textarea hidden="">// Project 12: Light theremin
+// Light sensor module on A0, buzzer on D8 (long leg to the signal pin).
+// Move your hand over the sensor to change the pitch.
+//
+// This needs the "passive" buzzer from Project 5 for different notes.
+// With an active buzzer, set ACTIVE_BUZZER to true: you get a beeper that
+// speeds up as it gets darker.
+//
+// Open the Serial Monitor and read the numbers when the sensor is covered
+// and uncovered. Put them into LOW_READING and HIGH_READING.
+
+const bool ACTIVE_BUZZER = false;
+
+const int LDR_PIN = A0;
+const int BUZZER_PIN = 8;
+const int LOW_READING = 100;
+const int HIGH_READING = 900;
+const int LOW_PITCH = 200;
+const int HIGH_PITCH = 2000;
+
+void setup() {
+  pinMode(BUZZER_PIN, OUTPUT);
+  Serial.begin(9600);
+  Serial.println("Light theremin ready");
+}
+
+void loop() {
+  int light = analogRead(LDR_PIN);
+  light = constrain(light, LOW_READING, HIGH_READING);
+
+  if (ACTIVE_BUZZER) {
+    int gap = map(light, LOW_READING, HIGH_READING, 50, 600);
+    digitalWrite(BUZZER_PIN, HIGH);
+    delay(40);
+    digitalWrite(BUZZER_PIN, LOW);
+    delay(gap);
+  } else {
+    int pitch = map(light, LOW_READING, HIGH_READING, LOW_PITCH, HIGH_PITCH);
+    tone(BUZZER_PIN, pitch);
+    delay(30);
+  }
+
+  Serial.println(light);
+}
+</textarea></div></section><section class="block"><h2>What you should see</h2><p>The pitch swoops up and down as you move your hand over the sensor.</p><h2>How it works</h2><ul class="plain"><li>constrain() keeps the reading inside our range, so the map is never out of bounds.</li><li>map(light, 100, 900, 200, 2000) turns a light reading into a pitch between 200 and 2000 Hz.</li><li>tone(pin, pitch) with no length keeps playing until the next call.</li></ul></section><section class="block"><h2>Look it up</h2><p>Every command in this sketch is explained on the Arduino site:</p><div class="pillrow"><a class="pill blue" href="https://docs.arduino.cc/language-reference/en/functions/advanced-io/tone/" rel="noopener" target="_blank">tone()</a><a class="pill blue" href="https://docs.arduino.cc/language-reference/en/functions/analog-io/analogRead/" rel="noopener" target="_blank">analogRead()</a><a class="pill blue" href="https://docs.arduino.cc/language-reference/en/functions/math/map/" rel="noopener" target="_blank">map()</a><a class="pill blue" href="https://docs.arduino.cc/language-reference/en/functions/communication/serial/" rel="noopener" target="_blank">Serial</a></div><p>More like this: <a href="learn.html">projects and tutorials online</a>.</p></section><section class="block"><h2>Try this</h2><ul class="plain"><li>Flip the direction so more light gives a lower note.</li><li>Round the pitch to the nearest note of a scale.</li><li>Add the ultrasonic sensor and play it as a second instrument.</li></ul></section><section class="block"><h2>If it does not work</h2><details><summary>The note never changes.</summary><p>Check the numbers in the Serial Monitor. If the reading hardly moves, shine a torch from the side.</p></details><details><summary>Only a click.</summary><p>You may have an active buzzer. Set ACTIVE_BUZZER to true.</p></details><details><summary>Nothing happens at all.</summary><p>Check the power light on the Nano. Then check that the wires sit on the S, V and G of the same pin number, not a mix of two. Unplug the USB before you move any wire.</p></details></section><button class="btn go built" data-built="p12">I built it!</button><div class="nextrow"><a class="btn" href="reaction-game.html">← 11. Reaction game</a><a class="btn" href="secret-knock.html">13. Secret knock lock →</a></div></div><footer>SPV CERA Lab · Practical learning resource. Check the board and pin labels before connecting parts.</footer><script>(function () {
+  var KEY = 'chipcampkit.built';
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
+  function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var built = load();
+  document.querySelectorAll('.code').forEach(function (box) {
+    var text = box.querySelector('textarea').value;
+    box.querySelector('[data-copy]').onclick = function (ev) {
+      var b = ev.currentTarget;
+      var done = function () { b.textContent = 'Copied!'; setTimeout(function () { b.textContent = 'Copy code'; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+      else fallback();
+      function fallback() { var t = box.querySelector('textarea'); t.hidden = false; t.select(); document.execCommand('copy'); t.hidden = true; done(); }
+    };
+    box.querySelector('[data-dl]').onclick = function () {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+      a.download = box.getAttribute('data-file');
+      document.body.appendChild(a); a.click(); a.remove();
+    };
+  });
+  var btn = document.querySelector('[data-built]');
+  if (btn) {
+    var id = btn.getAttribute('data-built');
+    var paint = function () { btn.textContent = built[id] ? 'Built it! (tap to undo)' : 'I built it!'; };
+    btn.onclick = function () { if (built[id]) delete built[id]; else built[id] = 1; save(built); paint(); };
+    paint();
+  }
+  var count = document.getElementById('count');
+  if (count) {
+    var n = 0;
+    Object.keys(built).forEach(function (k) { var c = document.getElementById('c-' + k); if (c) { c.classList.add('is-done'); n++; } });
+    count.textContent = n + ' of 15 built';
+  }
+})();
+</script><div class="wrap cera-footer"><strong>SPV CERA Lab</strong> · Computers / Embedded Systems / Robotics / Artificial Intelligence · Independent instructional prototype</div></body></html>

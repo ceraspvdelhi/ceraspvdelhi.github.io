@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>1. Hello Nano · SPV CERA Lab</title><meta content="Make the little light on your Nano blink, and make it talk." name="description"/><link href="assets/site.css" rel="stylesheet"/><link href="assets/cera-theme.css" rel="stylesheet"/></head><body style="--pc:#a94922"><header class="top"><div class="wrap"><a class="brand" href="index.html">SPV  /  CERA LAB</a><nav class="nav"><a href="index.html">Projects</a><a href="start.html">Start here</a><a href="box.html">Equipment</a><a href="buy.html">Components</a><a href="learn.html">More learning</a></nav></div></header><div class="banner"><div class="wrap"><div class="num">1</div><div><h1>Hello Nano</h1><p>Make the little light on your Nano blink, and make it talk.</p><div class="pillrow"><span class="pill ok">No extra parts needed</span><span class="pill">10 min</span><span class="pill">Level ★☆☆</span></div></div></div></div><div class="wrap"><section class="block"><h2>What you will make</h2><p>This is the first one for everybody. There is nothing to wire. The Nano has a small light on the board that is connected to pin 13, and you are going to tell it when to go on and off. You will also make the Nano send a message to your computer.</p></section><section class="block"><h2>What you need</h2><ul class="parts"><li class=""><b>1</b>Arduino Nano</li><li class=""><b>1</b>USB cable</li></ul><p class="soft">Each part is described on <a href="box.html">Equipment</a>.</p></section><section class="block"><h2>Build it</h2><ol class="steps"><li>Plug the Nano into the base board if it is not already, with the USB socket at the edge. The Start here page shows how.</li><li>Plug the USB cable into the Nano and into the computer.</li><li>Open the Arduino IDE, paste the code below over everything that is already there, and press Upload (the arrow).</li><li>When it says Done uploading, the light on the board blinks once a second.</li><li>Open the Serial Monitor (the magnifying glass at the top right, set to 9600 baud) and read what your Nano says.</li></ol></section><section class="block"><h2>The code</h2><p>Open the Arduino IDE, delete everything in the window, paste this, and press Upload. Board settings are on the <a href="start.html">Start here</a> page.</p><div class="code" data-file="p01_hello_nano.ino"><div class="bar"><b>Hello Nano</b><button class="btn small" data-copy="">Copy code</button><button class="btn small" data-dl="">Download .ino</button></div><pre><span class="t-c">// Project 1: Hello Nano</span>
+<span class="t-c">// The little orange light on your Nano is wired to pin 13.</span>
+<span class="t-c">// This sketch blinks it and says hello in the Serial Monitor.</span>
+
+<span class="t-k">const</span> <span class="t-k">int</span> LED_PIN = LED_BUILTIN;   <span class="t-c">// the light on the board (pin 13)</span>
+<span class="t-k">const</span> <span class="t-k">int</span> ON_TIME = <span class="t-n">500</span>;           <span class="t-c">// how long the light stays on, in milliseconds</span>
+<span class="t-k">const</span> <span class="t-k">int</span> OFF_TIME = <span class="t-n">500</span>;          <span class="t-c">// how long it stays off</span>
+
+<span class="t-k">void</span> <span class="t-f">setup</span>() {
+  <span class="t-f">pinMode</span>(LED_PIN, <span class="t-k">OUTPUT</span>);
+  Serial.<span class="t-f">begin</span>(<span class="t-n">9600</span>);
+  Serial.<span class="t-f">println</span>(<span class="t-s">"Hello from my Nano!"</span>);
+}
+
+<span class="t-k">void</span> <span class="t-f">loop</span>() {
+  <span class="t-f">digitalWrite</span>(LED_PIN, <span class="t-k">HIGH</span>);
+  Serial.<span class="t-f">println</span>(<span class="t-s">"light ON"</span>);
+  <span class="t-f">delay</span>(ON_TIME);
+
+  <span class="t-f">digitalWrite</span>(LED_PIN, <span class="t-k">LOW</span>);
+  Serial.<span class="t-f">println</span>(<span class="t-s">"light OFF"</span>);
+  <span class="t-f">delay</span>(OFF_TIME);
+}
+</pre><textarea hidden="">// Project 1: Hello Nano
+// The little orange light on your Nano is wired to pin 13.
+// This sketch blinks it and says hello in the Serial Monitor.
+
+const int LED_PIN = LED_BUILTIN;   // the light on the board (pin 13)
+const int ON_TIME = 500;           // how long the light stays on, in milliseconds
+const int OFF_TIME = 500;          // how long it stays off
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(9600);
+  Serial.println("Hello from my Nano!");
+}
+
+void loop() {
+  digitalWrite(LED_PIN, HIGH);
+  Serial.println("light ON");
+  delay(ON_TIME);
+
+  digitalWrite(LED_PIN, LOW);
+  Serial.println("light OFF");
+  delay(OFF_TIME);
+}
+</textarea></div></section><section class="block"><h2>What you should see</h2><p>The light on the board blinks once a second, and the Serial Monitor prints "light ON", "light OFF" in turn.</p><h2>How it works</h2><ul class="plain"><li>setup() runs once, when the Nano starts. We tell pin 13 it is an OUTPUT and start the Serial connection.</li><li>loop() runs again and again for ever. digitalWrite(LED_PIN, HIGH) switches the light on, delay(500) waits half a second, then LOW switches it off.</li><li>Serial.println() sends a line of text down the USB cable. That is how a robot tells you what it is doing.</li></ul></section><section class="block"><h2>Look it up</h2><p>Every command in this sketch is explained on the Arduino site:</p><div class="pillrow"><a class="pill blue" href="https://docs.arduino.cc/language-reference/en/functions/communication/serial/" rel="noopener" target="_blank">Serial</a></div><p>More like this: <a href="learn.html">projects and tutorials online</a>.</p></section><section class="block"><h2>Try this</h2><ul class="plain"><li>Change ON_TIME to 100 and OFF_TIME to 900. What does it look like now?</li><li>Make it blink SOS: three short, three long, three short.</li><li>Change the message in Serial.println to your own name.</li></ul></section><section class="block"><h2>If it does not work</h2><details><summary>The upload fails with a red message.</summary><p>In Tools, set Processor to ATmega328P (Old Bootloader) and pick the right Port. Try another USB port. The Start here page has the full list.</p></details><details><summary>The Serial Monitor shows funny symbols.</summary><p>Set the speed at the bottom right of the Serial Monitor to 9600 baud.</p></details><details><summary>The light never blinks but the upload said Done.</summary><p>On some boards the light is dim. Look from the side in a dark room. If it is still off, upload again.</p></details></section><button class="btn go built" data-built="p01">I built it!</button><div class="nextrow"><span></span><a class="btn" href="traffic-light.html">2. Traffic light →</a></div></div><footer>SPV CERA Lab · Practical learning resource. Check the board and pin labels before connecting parts.</footer><script>(function () {
+  var KEY = 'chipcampkit.built';
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
+  function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var built = load();
+  document.querySelectorAll('.code').forEach(function (box) {
+    var text = box.querySelector('textarea').value;
+    box.querySelector('[data-copy]').onclick = function (ev) {
+      var b = ev.currentTarget;
+      var done = function () { b.textContent = 'Copied!'; setTimeout(function () { b.textContent = 'Copy code'; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+      else fallback();
+      function fallback() { var t = box.querySelector('textarea'); t.hidden = false; t.select(); document.execCommand('copy'); t.hidden = true; done(); }
+    };
+    box.querySelector('[data-dl]').onclick = function () {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+      a.download = box.getAttribute('data-file');
+      document.body.appendChild(a); a.click(); a.remove();
+    };
+  });
+  var btn = document.querySelector('[data-built]');
+  if (btn) {
+    var id = btn.getAttribute('data-built');
+    var paint = function () { btn.textContent = built[id] ? 'Built it! (tap to undo)' : 'I built it!'; };
+    btn.onclick = function () { if (built[id]) delete built[id]; else built[id] = 1; save(built); paint(); };
+    paint();
+  }
+  var count = document.getElementById('count');
+  if (count) {
+    var n = 0;
+    Object.keys(built).forEach(function (k) { var c = document.getElementById('c-' + k); if (c) { c.classList.add('is-done'); n++; } });
+    count.textContent = n + ' of 15 built';
+  }
+})();
+</script><div class="wrap cera-footer"><strong>SPV CERA Lab</strong> · Computers / Embedded Systems / Robotics / Artificial Intelligence · Independent instructional prototype</div></body></html>

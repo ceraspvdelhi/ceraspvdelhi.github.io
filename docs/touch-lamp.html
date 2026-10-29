@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>3. Touch lamp · SPV CERA Lab</title><meta content="Touch to switch a light on. Touch again to switch it off." name="description"/><link href="assets/site.css" rel="stylesheet"/><link href="assets/cera-theme.css" rel="stylesheet"/></head><body style="--pc:#a94922"><header class="top"><div class="wrap"><a class="brand" href="index.html">SPV  /  CERA LAB</a><nav class="nav"><a href="index.html">Projects</a><a href="start.html">Start here</a><a href="box.html">Equipment</a><a href="buy.html">Components</a><a href="learn.html">More learning</a></nav></div></header><div class="banner"><div class="wrap"><div class="num">3</div><div><h1>Touch lamp</h1><p>Touch to switch a light on. Touch again to switch it off.</p><div class="pillrow"><span class="pill blue">Resistor optional</span><span class="pill">15 min</span><span class="pill">Level ★☆☆</span></div></div></div></div><div class="wrap"><section class="block"><h2>What you will make</h2><p>The touch sensor has a small pad on it. When your finger lands on the pad, the signal pin goes HIGH. Here we use that as a switch for the light on the Nano. If you buy a resistor later, you can swap in a real LED.</p><div class="note"><b>No resistors?</b> This project needs no resistor because it uses the light on the Nano. To use a real LED, plug it into D4 with a 220 Ω resistor as in the traffic light, and change LED_PIN to 4 in the code.</div></section><section class="block"><h2>What you need</h2><ul class="parts"><li class=""><b>1</b>Arduino Nano + base board</li><li class=""><b>1</b>Touch sensor module</li><li class=""><b>3</b>Female-female jumpers</li><li class=""><b>1</b>Optional: LED, 220 Ω resistor, breadboard</li></ul><p class="soft">Each part is described on <a href="box.html">Equipment</a>.</p></section><section class="block"><h2>Build it</h2><ol class="steps"><li>Unplug the USB.</li><li>Connect three female-female jumpers from the base board D7 triplet to the touch sensor: S to the I/O pin, V to VCC, G to GND.</li><li>Plug in the USB, upload, and touch the pad on the sensor with a fingertip.</li></ol><h2>Wiring</h2><div class="diagram"><svg aria-label="Wiring diagram" role="img" viewbox="0 0 760 210" xmlns="http://www.w3.org/2000/svg"><text fill="#69709a" font-family="Fredoka,sans-serif" font-size="12" x="12" y="14">NANO BASE BOARD</text><text fill="#69709a" font-family="Fredoka,sans-serif" font-size="12" text-anchor="end" x="748" y="14">PART</text><line stroke="#f59e0b" stroke-linecap="round" stroke-width="6" x1="96" x2="576.4" y1="51" y2="51"></line><rect fill="#fff" height="32" rx="10" stroke="#f59e0b" stroke-width="3" width="86" x="10" y="35"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="56">D7 S</text><rect fill="#f59e0b" height="32" rx="10" width="173.6" x="576.4" y="35"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="663.1999999999999" y="56">Touch sensor · I/O</text><line stroke="#e11d48" stroke-linecap="round" stroke-width="6" x1="96" x2="576.4" y1="113" y2="113"></line><rect fill="#fff" height="32" rx="10" stroke="#e11d48" stroke-width="3" width="86" x="10" y="97"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="118">D7 V</text><rect fill="#e11d48" height="32" rx="10" width="173.6" x="576.4" y="97"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="663.1999999999999" y="118">Touch sensor · VCC</text><line stroke="#334155" stroke-linecap="round" stroke-width="6" x1="96" x2="576.4" y1="175" y2="175"></line><rect fill="#fff" height="32" rx="10" stroke="#334155" stroke-width="3" width="86" x="10" y="159"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="180">D7 G</text><rect fill="#334155" height="32" rx="10" width="173.6" x="576.4" y="159"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="663.1999999999999" y="180">Touch sensor · GND</text></svg></div><table><tr><th>From (base board)</th><th>Through</th><th>To</th><th>Jumper</th></tr><tr><td><b>D7 S</b></td><td>direct</td><td>Touch sensor · I/O</td><td>female-female</td></tr><tr><td><b>D7 V</b></td><td>direct</td><td>Touch sensor · VCC</td><td>female-female</td></tr><tr><td><b>D7 G</b></td><td>direct</td><td>Touch sensor · GND</td><td>female-female</td></tr></table><h3>Tick each wire when it is done</h3><ul class="ticks"><li><label><input type="checkbox"/> D7 S → Touch sensor · I/O</label></li><li><label><input type="checkbox"/> D7 V → Touch sensor · VCC</label></li><li><label><input type="checkbox"/> D7 G → Touch sensor · GND</label></li></ul><div class="note"><b>Before you plug in the USB:</b> every box above is ticked and no bare metal legs touch each other.</div><div class="tip">Always change wires with the USB unplugged. Orange is a signal wire, red is power (5 V) and dark is ground. Your real jumpers can be any colour.</div></section><section class="block"><h2>The code</h2><p>Open the Arduino IDE, delete everything in the window, paste this, and press Upload. Board settings are on the <a href="start.html">Start here</a> page.</p><div class="code" data-file="p03_touch_lamp.ino"><div class="bar"><b>Touch lamp</b><button class="btn small" data-copy="">Copy code</button><button class="btn small" data-dl="">Download .ino</button></div><pre><span class="t-c">// Project 3: Touch lamp</span>
+<span class="t-c">// Touch the sensor once: the lamp turns on. Touch again: it turns off.</span>
+<span class="t-c">// Touch sensor signal on D7.</span>
+<span class="t-c">//</span>
+<span class="t-c">// LED_BUILTIN is the light on the Nano, so this works with no extra parts.</span>
+<span class="t-c">// To use a real LED (with a 220 ohm resistor), plug it into D4 and</span>
+<span class="t-c">// change the next line to:  const int LED_PIN = 4;</span>
+
+<span class="t-k">const</span> <span class="t-k">int</span> TOUCH_PIN = <span class="t-n">7</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> LED_PIN = LED_BUILTIN;
+
+<span class="t-k">bool</span> lampOn = <span class="t-k">false</span>;
+<span class="t-k">bool</span> wasTouched = <span class="t-k">false</span>;
+
+<span class="t-k">void</span> <span class="t-f">setup</span>() {
+  <span class="t-f">pinMode</span>(TOUCH_PIN, <span class="t-k">INPUT</span>);
+  <span class="t-f">pinMode</span>(LED_PIN, <span class="t-k">OUTPUT</span>);
+  Serial.<span class="t-f">begin</span>(<span class="t-n">9600</span>);
+  Serial.<span class="t-f">println</span>(<span class="t-s">"Touch lamp ready"</span>);
+}
+
+<span class="t-k">void</span> <span class="t-f">loop</span>() {
+  <span class="t-k">bool</span> touched = <span class="t-f">digitalRead</span>(TOUCH_PIN) == <span class="t-k">HIGH</span>;
+
+  <span class="t-c">// act only at the moment the finger lands, not while it stays there</span>
+  <span class="t-k">if</span> (touched &amp;&amp; !wasTouched) {
+    lampOn = !lampOn;
+    <span class="t-f">digitalWrite</span>(LED_PIN, lampOn ? <span class="t-k">HIGH</span> : <span class="t-k">LOW</span>);
+    Serial.<span class="t-f">println</span>(lampOn ? <span class="t-s">"lamp ON"</span> : <span class="t-s">"lamp OFF"</span>);
+    <span class="t-f">delay</span>(<span class="t-n">50</span>);   <span class="t-c">// ignore tiny bounces</span>
+  }
+  wasTouched = touched;
+}
+</pre><textarea hidden="">// Project 3: Touch lamp
+// Touch the sensor once: the lamp turns on. Touch again: it turns off.
+// Touch sensor signal on D7.
+//
+// LED_BUILTIN is the light on the Nano, so this works with no extra parts.
+// To use a real LED (with a 220 ohm resistor), plug it into D4 and
+// change the next line to:  const int LED_PIN = 4;
+
+const int TOUCH_PIN = 7;
+const int LED_PIN = LED_BUILTIN;
+
+bool lampOn = false;
+bool wasTouched = false;
+
+void setup() {
+  pinMode(TOUCH_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(9600);
+  Serial.println("Touch lamp ready");
+}
+
+void loop() {
+  bool touched = digitalRead(TOUCH_PIN) == HIGH;
+
+  // act only at the moment the finger lands, not while it stays there
+  if (touched &amp;&amp; !wasTouched) {
+    lampOn = !lampOn;
+    digitalWrite(LED_PIN, lampOn ? HIGH : LOW);
+    Serial.println(lampOn ? "lamp ON" : "lamp OFF");
+    delay(50);   // ignore tiny bounces
+  }
+  wasTouched = touched;
+}
+</textarea></div></section><section class="block"><h2>What you should see</h2><p>One touch and the lamp goes on, the next touch and it goes off. The Serial Monitor says the same.</p><h2>How it works</h2><ul class="plain"><li>digitalRead tells us if the pin is HIGH (touched) or LOW.</li><li>If we only checked "is it touched", the lamp would flicker on and off while your finger rests. So we remember the last state in wasTouched and act only at the moment the finger lands.</li><li>lampOn = !lampOn flips between true and false every time.</li></ul></section><section class="block"><h2>Look it up</h2><p>Every command in this sketch is explained on the Arduino site:</p><div class="pillrow"><a class="pill blue" href="https://docs.arduino.cc/language-reference/en/functions/communication/serial/" rel="noopener" target="_blank">Serial</a></div><p>More like this: <a href="learn.html">projects and tutorials online</a>.</p></section><section class="block"><h2>Try this</h2><ul class="plain"><li>Make the lamp stay on only while you touch.</li><li>Make it blink three times when you touch.</li><li>Use a real LED on D4 with a resistor.</li></ul></section><section class="block"><h2>If it does not work</h2><details><summary>It switches on its own.</summary><p>Keep your hand away from the board and the wires. Touch sensors can feel static. A shorter wire helps.</p></details><details><summary>Nothing happens at all.</summary><p>Check the power light on the Nano. Then check that the wires sit on the S, V and G of the same pin number, not a mix of two. Unplug the USB before you move any wire.</p></details><details><summary>The upload fails with a red message.</summary><p>In Tools, set Processor to ATmega328P (Old Bootloader) and pick the right Port. Try another USB port. The Start here page has the full list.</p></details></section><button class="btn go built" data-built="p03">I built it!</button><div class="nextrow"><a class="btn" href="traffic-light.html">← 2. Traffic light</a><a class="btn" href="night-light.html">4. Night light →</a></div></div><footer>SPV CERA Lab · Practical learning resource. Check the board and pin labels before connecting parts.</footer><script>(function () {
+  var KEY = 'chipcampkit.built';
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
+  function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var built = load();
+  document.querySelectorAll('.code').forEach(function (box) {
+    var text = box.querySelector('textarea').value;
+    box.querySelector('[data-copy]').onclick = function (ev) {
+      var b = ev.currentTarget;
+      var done = function () { b.textContent = 'Copied!'; setTimeout(function () { b.textContent = 'Copy code'; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+      else fallback();
+      function fallback() { var t = box.querySelector('textarea'); t.hidden = false; t.select(); document.execCommand('copy'); t.hidden = true; done(); }
+    };
+    box.querySelector('[data-dl]').onclick = function () {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+      a.download = box.getAttribute('data-file');
+      document.body.appendChild(a); a.click(); a.remove();
+    };
+  });
+  var btn = document.querySelector('[data-built]');
+  if (btn) {
+    var id = btn.getAttribute('data-built');
+    var paint = function () { btn.textContent = built[id] ? 'Built it! (tap to undo)' : 'I built it!'; };
+    btn.onclick = function () { if (built[id]) delete built[id]; else built[id] = 1; save(built); paint(); };
+    paint();
+  }
+  var count = document.getElementById('count');
+  if (count) {
+    var n = 0;
+    Object.keys(built).forEach(function (k) { var c = document.getElementById('c-' + k); if (c) { c.classList.add('is-done'); n++; } });
+    count.textContent = n + ' of 15 built';
+  }
+})();
+</script><div class="wrap cera-footer"><strong>SPV CERA Lab</strong> · Computers / Embedded Systems / Robotics / Artificial Intelligence · Independent instructional prototype</div></body></html>

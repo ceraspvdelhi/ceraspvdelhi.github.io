@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>2. Traffic light · SPV CERA Lab</title><meta content="Three LEDs that stop, get ready and go, just like the one on the road." name="description"/><link href="assets/site.css" rel="stylesheet"/><link href="assets/cera-theme.css" rel="stylesheet"/></head><body style="--pc:#a94922"><header class="top"><div class="wrap"><a class="brand" href="index.html">SPV  /  CERA LAB</a><nav class="nav"><a href="index.html">Projects</a><a href="start.html">Start here</a><a href="box.html">Equipment</a><a href="buy.html">Components</a><a href="learn.html">More learning</a></nav></div></header><div class="banner"><div class="wrap"><div class="num">2</div><div><h1>Traffic light</h1><p>Three LEDs that stop, get ready and go, just like the one on the road.</p><div class="pillrow"><span class="pill warn">Needs 220 Ω resistors</span><span class="pill">25 min</span><span class="pill">Level ★★☆</span></div></div></div></div><div class="wrap"><section class="block"><h2>What you will make</h2><p>An LED lets current through in one direction only, and it needs a resistor in front of it or it will burn out. That is why this project needs three 220 Ω resistors. They are not in the box, but any electronics shop will sell them. Resistors from 150 Ω to 470 Ω all work.</p><div class="note"><b>No resistors?</b> Open the code, change the line #define HAVE_RESISTORS 1 to 0 and upload. You only need the Nano. The light on the board becomes the traffic light: steady means stop, a fast blink means get ready, a slow blink means go.</div></section><section class="block"><h2>What you need</h2><ul class="parts"><li class=""><b>1</b>Arduino Nano + base board</li><li class=""><b>1</b>LED: red</li><li class=""><b>1</b>LED: yellow</li><li class=""><b>1</b>LED: green</li><li class=""><b>1</b>Breadboard</li><li class="miss"><b>3</b>Resistor 220 Ω (not in the box)</li><li class=""><b>6</b>Jumper wires, male to female</li></ul><p><a class="btn" href="buy.html">Where to get 220 Ω resistors</a></p><p class="soft">Each part is described on <a href="box.html">Equipment</a>.</p></section><section class="block"><h2>Build it</h2><ol class="steps"><li>Unplug the USB first. Always change wires with the power off.</li><li>Push the three LEDs into the breadboard in a row, a few columns apart. The long leg of each LED goes on the left, the short leg on the right.</li><li>Put a 220 Ω resistor from the long-leg column of each LED to an empty column to its left.</li><li>Run a male-female jumper from D2 S on the base board (female end on the base board) to the resistor of the red LED. D3 S goes to yellow, D4 S to green.</li><li>Run a jumper from any G pin to the blue rail of the breadboard, then a short wire from each short leg to the rail.</li><li>Plug in the USB and upload the code.</li></ol><h2>Wiring</h2><div class="diagram"><svg aria-label="Wiring diagram" role="img" viewbox="0 0 760 272" xmlns="http://www.w3.org/2000/svg"><text fill="#69709a" font-family="Fredoka,sans-serif" font-size="12" x="12" y="14">NANO BASE BOARD</text><text fill="#69709a" font-family="Fredoka,sans-serif" font-size="12" text-anchor="end" x="748" y="14">PART</text><line stroke="#ef4444" stroke-linecap="round" stroke-width="6" x1="96" x2="560" y1="51" y2="51"></line><rect fill="#fff" height="32" rx="6" stroke="#9aa6c8" stroke-width="2" width="76" x="212.66666666666666" y="35"></rect><circle cx="226.66666666666666" cy="45" fill="#9aa6c8" r="2"></circle><circle cx="226.66666666666666" cy="57" fill="#9aa6c8" r="2"></circle><circle cx="238.66666666666666" cy="45" fill="#9aa6c8" r="2"></circle><circle cx="238.66666666666666" cy="57" fill="#9aa6c8" r="2"></circle><circle cx="250.66666666666666" cy="45" fill="#9aa6c8" r="2"></circle><circle cx="250.66666666666666" cy="57" fill="#9aa6c8" r="2"></circle><circle cx="262.66666666666663" cy="45" fill="#9aa6c8" r="2"></circle><circle cx="262.66666666666663" cy="57" fill="#9aa6c8" r="2"></circle><circle cx="274.66666666666663" cy="45" fill="#9aa6c8" r="2"></circle><circle cx="274.66666666666663" cy="57" fill="#9aa6c8" r="2"></circle><text fill="#69709a" font-family="Nunito,sans-serif" font-size="11" text-anchor="middle" x="250.66666666666666" y="81">breadboard</text><rect fill="#f2d7a4" height="22" rx="8" stroke="#b78a3a" stroke-width="2" width="84" x="363.3333333333333" y="40"></rect><rect fill="#c0392b" height="22" width="5" x="383.3333333333333" y="40"></rect><rect fill="#c0392b" height="22" width="5" x="395.3333333333333" y="40"></rect><rect fill="#7b4a1e" height="22" width="5" x="407.3333333333333" y="40"></rect><text fill="#69709a" font-family="Nunito,sans-serif" font-size="11" text-anchor="middle" x="405.3333333333333" y="81">220 Ω resistor</text><rect fill="#fff" height="32" rx="10" stroke="#ef4444" stroke-width="3" width="86" x="10" y="35"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="56">D2 S</text><rect fill="#ef4444" height="32" rx="10" width="190" x="560" y="35"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="655" y="56">Red LED long leg (+)</text><line stroke="#eab308" stroke-linecap="round" stroke-width="6" x1="96" x2="535.4" y1="113" y2="113"></line><rect fill="#fff" height="32" rx="6" stroke="#9aa6c8" stroke-width="2" width="76" x="204.46666666666667" y="97"></rect><circle cx="218.46666666666667" cy="107" fill="#9aa6c8" r="2"></circle><circle cx="218.46666666666667" cy="119" fill="#9aa6c8" r="2"></circle><circle cx="230.46666666666667" cy="107" fill="#9aa6c8" r="2"></circle><circle cx="230.46666666666667" cy="119" fill="#9aa6c8" r="2"></circle><circle cx="242.46666666666667" cy="107" fill="#9aa6c8" r="2"></circle><circle cx="242.46666666666667" cy="119" fill="#9aa6c8" r="2"></circle><circle cx="254.46666666666667" cy="107" fill="#9aa6c8" r="2"></circle><circle cx="254.46666666666667" cy="119" fill="#9aa6c8" r="2"></circle><circle cx="266.4666666666667" cy="107" fill="#9aa6c8" r="2"></circle><circle cx="266.4666666666667" cy="119" fill="#9aa6c8" r="2"></circle><text fill="#69709a" font-family="Nunito,sans-serif" font-size="11" text-anchor="middle" x="242.46666666666667" y="143">breadboard</text><rect fill="#f2d7a4" height="22" rx="8" stroke="#b78a3a" stroke-width="2" width="84" x="346.93333333333334" y="102"></rect><rect fill="#c0392b" height="22" width="5" x="366.93333333333334" y="102"></rect><rect fill="#c0392b" height="22" width="5" x="378.93333333333334" y="102"></rect><rect fill="#7b4a1e" height="22" width="5" x="390.93333333333334" y="102"></rect><text fill="#69709a" font-family="Nunito,sans-serif" font-size="11" text-anchor="middle" x="388.93333333333334" y="143">220 Ω resistor</text><rect fill="#fff" height="32" rx="10" stroke="#eab308" stroke-width="3" width="86" x="10" y="97"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="118">D3 S</text><rect fill="#eab308" height="32" rx="10" width="214.6" x="535.4" y="97"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="642.6999999999999" y="118">Yellow LED long leg (+)</text><line stroke="#22c55e" stroke-linecap="round" stroke-width="6" x1="96" x2="543.6" y1="175" y2="175"></line><rect fill="#fff" height="32" rx="6" stroke="#9aa6c8" stroke-width="2" width="76" x="207.20000000000002" y="159"></rect><circle cx="221.20000000000002" cy="169" fill="#9aa6c8" r="2"></circle><circle cx="221.20000000000002" cy="181" fill="#9aa6c8" r="2"></circle><circle cx="233.20000000000002" cy="169" fill="#9aa6c8" r="2"></circle><circle cx="233.20000000000002" cy="181" fill="#9aa6c8" r="2"></circle><circle cx="245.20000000000002" cy="169" fill="#9aa6c8" r="2"></circle><circle cx="245.20000000000002" cy="181" fill="#9aa6c8" r="2"></circle><circle cx="257.20000000000005" cy="169" fill="#9aa6c8" r="2"></circle><circle cx="257.20000000000005" cy="181" fill="#9aa6c8" r="2"></circle><circle cx="269.20000000000005" cy="169" fill="#9aa6c8" r="2"></circle><circle cx="269.20000000000005" cy="181" fill="#9aa6c8" r="2"></circle><text fill="#69709a" font-family="Nunito,sans-serif" font-size="11" text-anchor="middle" x="245.20000000000002" y="205">breadboard</text><rect fill="#f2d7a4" height="22" rx="8" stroke="#b78a3a" stroke-width="2" width="84" x="352.40000000000003" y="164"></rect><rect fill="#c0392b" height="22" width="5" x="372.40000000000003" y="164"></rect><rect fill="#c0392b" height="22" width="5" x="384.40000000000003" y="164"></rect><rect fill="#7b4a1e" height="22" width="5" x="396.40000000000003" y="164"></rect><text fill="#69709a" font-family="Nunito,sans-serif" font-size="11" text-anchor="middle" x="394.40000000000003" y="205">220 Ω resistor</text><rect fill="#fff" height="32" rx="10" stroke="#22c55e" stroke-width="3" width="86" x="10" y="159"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="180">D4 S</text><rect fill="#22c55e" height="32" rx="10" width="206.39999999999998" x="543.6" y="159"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="646.8" y="180">Green LED long leg (+)</text><line stroke="#334155" stroke-linecap="round" stroke-width="6" x1="96" x2="527.2" y1="237" y2="237"></line><rect fill="#fff" height="32" rx="6" stroke="#9aa6c8" stroke-width="2" width="76" x="273.6" y="221"></rect><circle cx="287.6" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="287.6" cy="243" fill="#9aa6c8" r="2"></circle><circle cx="299.6" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="299.6" cy="243" fill="#9aa6c8" r="2"></circle><circle cx="311.6" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="311.6" cy="243" fill="#9aa6c8" r="2"></circle><circle cx="323.6" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="323.6" cy="243" fill="#9aa6c8" r="2"></circle><circle cx="335.6" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="335.6" cy="243" fill="#9aa6c8" r="2"></circle><text fill="#69709a" font-family="Nunito,sans-serif" font-size="11" text-anchor="middle" x="311.6" y="267">breadboard</text><rect fill="#fff" height="32" rx="10" stroke="#334155" stroke-width="3" width="86" x="10" y="221"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="242">G</text><rect fill="#334155" height="32" rx="10" width="222.79999999999998" x="527.2" y="221"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="638.6" y="242">All three LED short legs</text></svg></div><table><tr><th>From (base board)</th><th>Through</th><th>To</th><th>Jumper</th></tr><tr><td><b>D2 S</b></td><td>breadboard then 220 Ω resistor</td><td>Red LED long leg (+)</td><td>male-female (female end on the base board)</td></tr><tr><td><b>D3 S</b></td><td>breadboard then 220 Ω resistor</td><td>Yellow LED long leg (+)</td><td>male-female (female end on the base board)</td></tr><tr><td><b>D4 S</b></td><td>breadboard then 220 Ω resistor</td><td>Green LED long leg (+)</td><td>male-female (female end on the base board)</td></tr><tr><td><b>G</b></td><td>breadboard</td><td>All three LED short legs</td><td>male-female (female end on the base board)</td></tr></table><h3>Tick each wire when it is done</h3><ul class="ticks"><li><label><input type="checkbox"/> D2 S → Red LED long leg (+)</label></li><li><label><input type="checkbox"/> D3 S → Yellow LED long leg (+)</label></li><li><label><input type="checkbox"/> D4 S → Green LED long leg (+)</label></li><li><label><input type="checkbox"/> G → All three LED short legs</label></li></ul><div class="note"><b>Before you plug in the USB:</b> every box above is ticked and no bare metal legs touch each other. The long leg of each LED goes to the resistor side.</div><div class="tip">Always change wires with the USB unplugged. Orange is a signal wire, red is power (5 V) and dark is ground. Your real jumpers can be any colour.</div></section><section class="block"><h2>The code</h2><p>Open the Arduino IDE, delete everything in the window, paste this, and press Upload. Board settings are on the <a href="start.html">Start here</a> page.</p><div class="code" data-file="p02_traffic_light.ino"><div class="bar"><b>Traffic light</b><button class="btn small" data-copy="">Copy code</button><button class="btn small" data-dl="">Download .ino</button></div><pre><span class="t-c">// Project 2: Traffic light</span>
+<span class="t-c">// Three LEDs, each with its own 220 ohm resistor: red on D2, yellow on D3, green on D4.</span>
+<span class="t-c">//</span>
+<span class="t-c">// No resistors yet? Change the next line to 0. The light on the board</span>
+<span class="t-c">// will do the job of all three: steady = stop, fast blink = get ready, slow blink = go.</span>
+
+<span class="t-k">#define</span> HAVE_RESISTORS <span class="t-n">1</span>
+
+<span class="t-k">const</span> <span class="t-k">int</span> RED_PIN = <span class="t-n">2</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> YELLOW_PIN = <span class="t-n">3</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> GREEN_PIN = <span class="t-n">4</span>;
+
+<span class="t-k">const</span> <span class="t-k">int</span> STOP_TIME = <span class="t-n">4000</span>;     <span class="t-c">// milliseconds</span>
+<span class="t-k">const</span> <span class="t-k">int</span> READY_TIME = <span class="t-n">1500</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> GO_TIME = <span class="t-n">4000</span>;
+
+#<span class="t-k">if</span> HAVE_RESISTORS
+<span class="t-k">void</span> <span class="t-f">lights</span>(<span class="t-k">bool</span> r, <span class="t-k">bool</span> y, <span class="t-k">bool</span> g) {
+  <span class="t-f">digitalWrite</span>(RED_PIN, r);
+  <span class="t-f">digitalWrite</span>(YELLOW_PIN, y);
+  <span class="t-f">digitalWrite</span>(GREEN_PIN, g);
+}
+#<span class="t-k">else</span>
+<span class="t-c">// One light only: show the state with a blink pattern.</span>
+<span class="t-k">void</span> <span class="t-f">blinkFor</span>(<span class="t-k">int</span> total, <span class="t-k">int</span> period) {
+  <span class="t-k">unsigned</span> <span class="t-k">long</span> start = <span class="t-f">millis</span>();
+  <span class="t-k">while</span> (<span class="t-f">millis</span>() - start &lt; (<span class="t-k">unsigned</span> <span class="t-k">long</span>)total) {
+    <span class="t-f">digitalWrite</span>(LED_BUILTIN, <span class="t-k">HIGH</span>);
+    <span class="t-f">delay</span>(period / <span class="t-n">2</span>);
+    <span class="t-f">digitalWrite</span>(LED_BUILTIN, <span class="t-k">LOW</span>);
+    <span class="t-f">delay</span>(period / <span class="t-n">2</span>);
+  }
+}
+#endif
+
+<span class="t-k">void</span> <span class="t-f">setup</span>() {
+  Serial.<span class="t-f">begin</span>(<span class="t-n">9600</span>);
+#<span class="t-k">if</span> HAVE_RESISTORS
+  <span class="t-f">pinMode</span>(RED_PIN, <span class="t-k">OUTPUT</span>);
+  <span class="t-f">pinMode</span>(YELLOW_PIN, <span class="t-k">OUTPUT</span>);
+  <span class="t-f">pinMode</span>(GREEN_PIN, <span class="t-k">OUTPUT</span>);
+#<span class="t-k">else</span>
+  <span class="t-f">pinMode</span>(LED_BUILTIN, <span class="t-k">OUTPUT</span>);
+#endif
+  Serial.<span class="t-f">println</span>(<span class="t-s">"Traffic light ready"</span>);
+}
+
+<span class="t-k">void</span> <span class="t-f">loop</span>() {
+#<span class="t-k">if</span> HAVE_RESISTORS
+  Serial.<span class="t-f">println</span>(<span class="t-s">"STOP"</span>);
+  <span class="t-f">lights</span>(<span class="t-k">true</span>, <span class="t-k">false</span>, <span class="t-k">false</span>);
+  <span class="t-f">delay</span>(STOP_TIME);
+
+  Serial.<span class="t-f">println</span>(<span class="t-s">"GET READY"</span>);
+  <span class="t-f">lights</span>(<span class="t-k">true</span>, <span class="t-k">true</span>, <span class="t-k">false</span>);
+  <span class="t-f">delay</span>(READY_TIME);
+
+  Serial.<span class="t-f">println</span>(<span class="t-s">"GO"</span>);
+  <span class="t-f">lights</span>(<span class="t-k">false</span>, <span class="t-k">false</span>, <span class="t-k">true</span>);
+  <span class="t-f">delay</span>(GO_TIME);
+
+  Serial.<span class="t-f">println</span>(<span class="t-s">"SLOW DOWN"</span>);
+  <span class="t-f">lights</span>(<span class="t-k">false</span>, <span class="t-k">true</span>, <span class="t-k">false</span>);
+  <span class="t-f">delay</span>(READY_TIME);
+#<span class="t-k">else</span>
+  Serial.<span class="t-f">println</span>(<span class="t-s">"STOP (steady light)"</span>);
+  <span class="t-f">digitalWrite</span>(LED_BUILTIN, <span class="t-k">HIGH</span>);
+  <span class="t-f">delay</span>(STOP_TIME);
+
+  Serial.<span class="t-f">println</span>(<span class="t-s">"GET READY (fast blink)"</span>);
+  <span class="t-f">blinkFor</span>(READY_TIME, <span class="t-n">200</span>);
+
+  Serial.<span class="t-f">println</span>(<span class="t-s">"GO (slow blink)"</span>);
+  <span class="t-f">blinkFor</span>(GO_TIME, <span class="t-n">1000</span>);
+#endif
+}
+</pre><textarea hidden="">// Project 2: Traffic light
+// Three LEDs, each with its own 220 ohm resistor: red on D2, yellow on D3, green on D4.
+//
+// No resistors yet? Change the next line to 0. The light on the board
+// will do the job of all three: steady = stop, fast blink = get ready, slow blink = go.
+
+#define HAVE_RESISTORS 1
+
+const int RED_PIN = 2;
+const int YELLOW_PIN = 3;
+const int GREEN_PIN = 4;
+
+const int STOP_TIME = 4000;     // milliseconds
+const int READY_TIME = 1500;
+const int GO_TIME = 4000;
+
+#if HAVE_RESISTORS
+void lights(bool r, bool y, bool g) {
+  digitalWrite(RED_PIN, r);
+  digitalWrite(YELLOW_PIN, y);
+  digitalWrite(GREEN_PIN, g);
+}
+#else
+// One light only: show the state with a blink pattern.
+void blinkFor(int total, int period) {
+  unsigned long start = millis();
+  while (millis() - start &lt; (unsigned long)total) {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(period / 2);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(period / 2);
+  }
+}
+#endif
+
+void setup() {
+  Serial.begin(9600);
+#if HAVE_RESISTORS
+  pinMode(RED_PIN, OUTPUT);
+  pinMode(YELLOW_PIN, OUTPUT);
+  pinMode(GREEN_PIN, OUTPUT);
+#else
+  pinMode(LED_BUILTIN, OUTPUT);
+#endif
+  Serial.println("Traffic light ready");
+}
+
+void loop() {
+#if HAVE_RESISTORS
+  Serial.println("STOP");
+  lights(true, false, false);
+  delay(STOP_TIME);
+
+  Serial.println("GET READY");
+  lights(true, true, false);
+  delay(READY_TIME);
+
+  Serial.println("GO");
+  lights(false, false, true);
+  delay(GO_TIME);
+
+  Serial.println("SLOW DOWN");
+  lights(false, true, false);
+  delay(READY_TIME);
+#else
+  Serial.println("STOP (steady light)");
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(STOP_TIME);
+
+  Serial.println("GET READY (fast blink)");
+  blinkFor(READY_TIME, 200);
+
+  Serial.println("GO (slow blink)");
+  blinkFor(GO_TIME, 1000);
+#endif
+}
+</textarea></div></section><section class="block"><h2>What you should see</h2><p>Red for four seconds, red and yellow, green for four seconds, yellow, and round again. The Serial Monitor names each stage.</p><h2>How it works</h2><ul class="plain"><li>Each LED has its own pin. lights(true, false, false) means red on, yellow off, green off.</li><li>The loop goes STOP, GET READY (red and yellow together, like in many countries), GO, SLOW DOWN, and then starts again.</li><li>The times are constants at the top. Change them and the whole light changes, with nothing else to touch.</li></ul></section><section class="block"><h2>Look it up</h2><p>Every command in this sketch is explained on the Arduino site:</p><div class="pillrow"><a class="pill blue" href="https://docs.arduino.cc/language-reference/en/functions/time/millis/" rel="noopener" target="_blank">millis()</a><a class="pill blue" href="https://docs.arduino.cc/language-reference/en/functions/communication/serial/" rel="noopener" target="_blank">Serial</a></div><p>More like this: <a href="learn.html">projects and tutorials online</a>.</p></section><section class="block"><h2>Try this</h2><ul class="plain"><li>Make the green light longer than the red one.</li><li>Add the touch sensor from the box as a crossing button: when somebody touches it, finish the green and go to red sooner.</li><li>Make the yellow light blink three times before it goes red.</li></ul></section><section class="block"><h2>If it does not work</h2><details><summary>One LED stays dark.</summary><p>LEDs only work one way round. Turn it around, long leg to the resistor side.</p></details><details><summary>The breadboard part does not work.</summary><p>The five holes in one short row are joined together. Make sure the LED leg and the resistor leg share a row, and not a column of the other half.</p></details><details><summary>Nothing happens at all.</summary><p>Check the power light on the Nano. Then check that the wires sit on the S, V and G of the same pin number, not a mix of two. Unplug the USB before you move any wire.</p></details></section><button class="btn go built" data-built="p02">I built it!</button><div class="nextrow"><a class="btn" href="hello-nano.html">← 1. Hello Nano</a><a class="btn" href="touch-lamp.html">3. Touch lamp →</a></div></div><footer>SPV CERA Lab · Practical learning resource. Check the board and pin labels before connecting parts.</footer><script>(function () {
+  var KEY = 'chipcampkit.built';
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
+  function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var built = load();
+  document.querySelectorAll('.code').forEach(function (box) {
+    var text = box.querySelector('textarea').value;
+    box.querySelector('[data-copy]').onclick = function (ev) {
+      var b = ev.currentTarget;
+      var done = function () { b.textContent = 'Copied!'; setTimeout(function () { b.textContent = 'Copy code'; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+      else fallback();
+      function fallback() { var t = box.querySelector('textarea'); t.hidden = false; t.select(); document.execCommand('copy'); t.hidden = true; done(); }
+    };
+    box.querySelector('[data-dl]').onclick = function () {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+      a.download = box.getAttribute('data-file');
+      document.body.appendChild(a); a.click(); a.remove();
+    };
+  });
+  var btn = document.querySelector('[data-built]');
+  if (btn) {
+    var id = btn.getAttribute('data-built');
+    var paint = function () { btn.textContent = built[id] ? 'Built it! (tap to undo)' : 'I built it!'; };
+    btn.onclick = function () { if (built[id]) delete built[id]; else built[id] = 1; save(built); paint(); };
+    paint();
+  }
+  var count = document.getElementById('count');
+  if (count) {
+    var n = 0;
+    Object.keys(built).forEach(function (k) { var c = document.getElementById('c-' + k); if (c) { c.classList.add('is-done'); n++; } });
+    count.textContent = n + ' of 15 built';
+  }
+})();
+</script><div class="wrap cera-footer"><strong>SPV CERA Lab</strong> · Computers / Embedded Systems / Robotics / Artificial Intelligence · Independent instructional prototype</div></body></html>

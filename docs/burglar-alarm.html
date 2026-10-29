@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>6. Burglar alarm · SPV CERA Lab</title><meta content="An invisible beam that screams when somebody gets near." name="description"/><link href="assets/site.css" rel="stylesheet"/><link href="assets/cera-theme.css" rel="stylesheet"/></head><body style="--pc:#a94922"><header class="top"><div class="wrap"><a class="brand" href="index.html">SPV  /  CERA LAB</a><nav class="nav"><a href="index.html">Projects</a><a href="start.html">Start here</a><a href="box.html">Equipment</a><a href="buy.html">Components</a><a href="learn.html">More learning</a></nav></div></header><div class="banner"><div class="wrap"><div class="num">6</div><div><h1>Burglar alarm</h1><p>An invisible beam that screams when somebody gets near.</p><div class="pillrow"><span class="pill ok">No extra parts needed</span><span class="pill">20 min</span><span class="pill">Level ★★☆</span></div></div></div></div><div class="wrap"><section class="block"><h2>What you will make</h2><p>The IR module sends out infrared light and looks for its reflection. When something is in front of it, the output pin changes. Most modules pull the pin LOW when they see something. There is a tiny screw (a trimmer) on the module that changes how far it can see.</p></section><section class="block"><h2>What you need</h2><ul class="parts"><li class=""><b>1</b>Arduino Nano + base board</li><li class=""><b>1</b>IR sensor module</li><li class=""><b>1</b>Buzzer</li><li class=""><b>1</b>Breadboard</li><li class=""><b>5</b>Jumpers: 2 male-female, 3 female-female</li></ul><p class="soft">Each part is described on <a href="box.html">Equipment</a>.</p></section><section class="block"><h2>Build it</h2><ol class="steps"><li>Unplug the USB. Wire the buzzer to D8 as in Project 5.</li><li>Wire the IR module with three female-female jumpers to the D2 triplet: S to OUT, V to VCC, G to GND.</li><li>Upload. You have five seconds to point the sensor at the door, then it is ARMED.</li><li>Wave a hand in front of the sensor. If it never fires, turn the tiny screw on the module slowly until the small light on the module comes on when your hand is 10 cm away.</li></ol><h2>Wiring</h2><div class="diagram"><svg aria-label="Wiring diagram" role="img" viewbox="0 0 760 334" xmlns="http://www.w3.org/2000/svg"><text fill="#69709a" font-family="Fredoka,sans-serif" font-size="12" x="12" y="14">NANO BASE BOARD</text><text fill="#69709a" font-family="Fredoka,sans-serif" font-size="12" text-anchor="end" x="748" y="14">PART</text><line stroke="#f59e0b" stroke-linecap="round" stroke-width="6" x1="96" x2="600" y1="51" y2="51"></line><rect fill="#fff" height="32" rx="10" stroke="#f59e0b" stroke-width="3" width="86" x="10" y="35"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="56">D2 S</text><rect fill="#f59e0b" height="32" rx="10" width="150" x="600" y="35"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="675" y="56">IR sensor · OUT</text><line stroke="#e11d48" stroke-linecap="round" stroke-width="6" x1="96" x2="600" y1="113" y2="113"></line><rect fill="#fff" height="32" rx="10" stroke="#e11d48" stroke-width="3" width="86" x="10" y="97"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="118">D2 V</text><rect fill="#e11d48" height="32" rx="10" width="150" x="600" y="97"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="675" y="118">IR sensor · VCC</text><line stroke="#334155" stroke-linecap="round" stroke-width="6" x1="96" x2="600" y1="175" y2="175"></line><rect fill="#fff" height="32" rx="10" stroke="#334155" stroke-width="3" width="86" x="10" y="159"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="180">D2 G</text><rect fill="#334155" height="32" rx="10" width="150" x="600" y="159"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="675" y="180">IR sensor · GND</text><line stroke="#f59e0b" stroke-linecap="round" stroke-width="6" x1="96" x2="568.2" y1="237" y2="237"></line><rect fill="#fff" height="32" rx="6" stroke="#9aa6c8" stroke-width="2" width="76" x="294.1" y="221"></rect><circle cx="308.1" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="308.1" cy="243" fill="#9aa6c8" r="2"></circle><circle cx="320.1" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="320.1" cy="243" fill="#9aa6c8" r="2"></circle><circle cx="332.1" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="332.1" cy="243" fill="#9aa6c8" r="2"></circle><circle cx="344.1" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="344.1" cy="243" fill="#9aa6c8" r="2"></circle><circle cx="356.1" cy="231" fill="#9aa6c8" r="2"></circle><circle cx="356.1" cy="243" fill="#9aa6c8" r="2"></circle><text fill="#69709a" font-family="Nunito,sans-serif" font-size="11" text-anchor="middle" x="332.1" y="267">breadboard</text><rect fill="#fff" height="32" rx="10" stroke="#f59e0b" stroke-width="3" width="86" x="10" y="221"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="242">D8 S</text><rect fill="#f59e0b" height="32" rx="10" width="181.79999999999998" x="568.2" y="221"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="659.1" y="242">Buzzer long leg (+)</text><line stroke="#334155" stroke-linecap="round" stroke-width="6" x1="96" x2="592.8" y1="299" y2="299"></line><rect fill="#fff" height="32" rx="6" stroke="#9aa6c8" stroke-width="2" width="76" x="306.4" y="283"></rect><circle cx="320.4" cy="293" fill="#9aa6c8" r="2"></circle><circle cx="320.4" cy="305" fill="#9aa6c8" r="2"></circle><circle cx="332.4" cy="293" fill="#9aa6c8" r="2"></circle><circle cx="332.4" cy="305" fill="#9aa6c8" r="2"></circle><circle cx="344.4" cy="293" fill="#9aa6c8" r="2"></circle><circle cx="344.4" cy="305" fill="#9aa6c8" r="2"></circle><circle cx="356.4" cy="293" fill="#9aa6c8" r="2"></circle><circle cx="356.4" cy="305" fill="#9aa6c8" r="2"></circle><circle cx="368.4" cy="293" fill="#9aa6c8" r="2"></circle><circle cx="368.4" cy="305" fill="#9aa6c8" r="2"></circle><text fill="#69709a" font-family="Nunito,sans-serif" font-size="11" text-anchor="middle" x="344.4" y="329">breadboard</text><rect fill="#fff" height="32" rx="10" stroke="#334155" stroke-width="3" width="86" x="10" y="283"></rect><text fill="#2b2f4a" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" text-anchor="middle" x="53" y="304">D8 G</text><rect fill="#334155" height="32" rx="10" width="157.2" x="592.8" y="283"></rect><text fill="#fff" font-family="Nunito,sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="671.4" y="304">Buzzer short leg</text></svg></div><table><tr><th>From (base board)</th><th>Through</th><th>To</th><th>Jumper</th></tr><tr><td><b>D2 S</b></td><td>direct</td><td>IR sensor · OUT</td><td>female-female</td></tr><tr><td><b>D2 V</b></td><td>direct</td><td>IR sensor · VCC</td><td>female-female</td></tr><tr><td><b>D2 G</b></td><td>direct</td><td>IR sensor · GND</td><td>female-female</td></tr><tr><td><b>D8 S</b></td><td>breadboard</td><td>Buzzer long leg (+)</td><td>male-female (female end on the base board)</td></tr><tr><td><b>D8 G</b></td><td>breadboard</td><td>Buzzer short leg</td><td>male-female (female end on the base board)</td></tr></table><h3>Tick each wire when it is done</h3><ul class="ticks"><li><label><input type="checkbox"/> D2 S → IR sensor · OUT</label></li><li><label><input type="checkbox"/> D2 V → IR sensor · VCC</label></li><li><label><input type="checkbox"/> D2 G → IR sensor · GND</label></li><li><label><input type="checkbox"/> D8 S → Buzzer long leg (+)</label></li><li><label><input type="checkbox"/> D8 G → Buzzer short leg</label></li></ul><div class="note"><b>Before you plug in the USB:</b> every box above is ticked and no bare metal legs touch each other.</div><div class="tip">Always change wires with the USB unplugged. Orange is a signal wire, red is power (5 V) and dark is ground. Your real jumpers can be any colour.</div></section><section class="block"><h2>The code</h2><p>Open the Arduino IDE, delete everything in the window, paste this, and press Upload. Board settings are on the <a href="start.html">Start here</a> page.</p><div class="code" data-file="p06_burglar_alarm.ino"><div class="bar"><b>Burglar alarm</b><button class="btn small" data-copy="">Copy code</button><button class="btn small" data-dl="">Download .ino</button></div><pre><span class="t-c">// Project 6: Burglar alarm</span>
+<span class="t-c">// IR sensor OUT on D2, buzzer on D8 (long leg to the signal pin).</span>
+<span class="t-c">// Most IR obstacle modules pull the pin LOW when something is in front of them.</span>
+<span class="t-c">// If yours does the opposite, change SEES_THING to HIGH.</span>
+<span class="t-c">//</span>
+<span class="t-c">// You get 5 seconds after power-up to put the sensor in place.</span>
+
+<span class="t-k">const</span> <span class="t-k">int</span> IR_PIN = <span class="t-n">2</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> BUZZER_PIN = <span class="t-n">8</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> SEES_THING = <span class="t-k">LOW</span>;
+<span class="t-k">const</span> <span class="t-k">int</span> ARMING_SECONDS = <span class="t-n">5</span>;
+<span class="t-k">const</span> <span class="t-k">bool</span> ACTIVE_BUZZER = <span class="t-k">false</span>;
+
+<span class="t-k">void</span> <span class="t-f">siren</span>() {
+  <span class="t-k">for</span> (<span class="t-k">int</span> i = <span class="t-n">0</span>; i &lt; <span class="t-n">4</span>; i++) {
+    <span class="t-k">if</span> (ACTIVE_BUZZER) {
+      <span class="t-f">digitalWrite</span>(BUZZER_PIN, <span class="t-k">HIGH</span>);
+      <span class="t-f">delay</span>(<span class="t-n">150</span>);
+      <span class="t-f">digitalWrite</span>(BUZZER_PIN, <span class="t-k">LOW</span>);
+      <span class="t-f">delay</span>(<span class="t-n">100</span>);
+    } <span class="t-k">else</span> {
+      <span class="t-f">tone</span>(BUZZER_PIN, <span class="t-n">900</span>, <span class="t-n">150</span>);
+      <span class="t-f">delay</span>(<span class="t-n">170</span>);
+      <span class="t-f">tone</span>(BUZZER_PIN, <span class="t-n">1500</span>, <span class="t-n">150</span>);
+      <span class="t-f">delay</span>(<span class="t-n">170</span>);
+    }
+  }
+  <span class="t-f">noTone</span>(BUZZER_PIN);
+  <span class="t-f">digitalWrite</span>(BUZZER_PIN, <span class="t-k">LOW</span>);
+}
+
+<span class="t-k">void</span> <span class="t-f">setup</span>() {
+  <span class="t-f">pinMode</span>(IR_PIN, <span class="t-k">INPUT</span>);
+  <span class="t-f">pinMode</span>(BUZZER_PIN, <span class="t-k">OUTPUT</span>);
+  <span class="t-f">pinMode</span>(LED_BUILTIN, <span class="t-k">OUTPUT</span>);
+  Serial.<span class="t-f">begin</span>(<span class="t-n">9600</span>);
+  Serial.<span class="t-f">print</span>(<span class="t-s">"Arming in "</span>);
+  Serial.<span class="t-f">print</span>(ARMING_SECONDS);
+  Serial.<span class="t-f">println</span>(<span class="t-s">" seconds..."</span>);
+  <span class="t-k">for</span> (<span class="t-k">int</span> s = ARMING_SECONDS; s &gt; <span class="t-n">0</span>; s--) {
+    <span class="t-f">digitalWrite</span>(LED_BUILTIN, <span class="t-k">HIGH</span>);
+    <span class="t-f">delay</span>(<span class="t-n">100</span>);
+    <span class="t-f">digitalWrite</span>(LED_BUILTIN, <span class="t-k">LOW</span>);
+    <span class="t-f">delay</span>(<span class="t-n">900</span>);
+  }
+  Serial.<span class="t-f">println</span>(<span class="t-s">"ARMED"</span>);
+}
+
+<span class="t-k">void</span> <span class="t-f">loop</span>() {
+  <span class="t-k">if</span> (<span class="t-f">digitalRead</span>(IR_PIN) == SEES_THING) {
+    Serial.<span class="t-f">println</span>(<span class="t-s">"INTRUDER!"</span>);
+    <span class="t-f">digitalWrite</span>(LED_BUILTIN, <span class="t-k">HIGH</span>);
+    <span class="t-f">siren</span>();
+    <span class="t-f">digitalWrite</span>(LED_BUILTIN, <span class="t-k">LOW</span>);
+  }
+}
+</pre><textarea hidden="">// Project 6: Burglar alarm
+// IR sensor OUT on D2, buzzer on D8 (long leg to the signal pin).
+// Most IR obstacle modules pull the pin LOW when something is in front of them.
+// If yours does the opposite, change SEES_THING to HIGH.
+//
+// You get 5 seconds after power-up to put the sensor in place.
+
+const int IR_PIN = 2;
+const int BUZZER_PIN = 8;
+const int SEES_THING = LOW;
+const int ARMING_SECONDS = 5;
+const bool ACTIVE_BUZZER = false;
+
+void siren() {
+  for (int i = 0; i &lt; 4; i++) {
+    if (ACTIVE_BUZZER) {
+      digitalWrite(BUZZER_PIN, HIGH);
+      delay(150);
+      digitalWrite(BUZZER_PIN, LOW);
+      delay(100);
+    } else {
+      tone(BUZZER_PIN, 900, 150);
+      delay(170);
+      tone(BUZZER_PIN, 1500, 150);
+      delay(170);
+    }
+  }
+  noTone(BUZZER_PIN);
+  digitalWrite(BUZZER_PIN, LOW);
+}
+
+void setup() {
+  pinMode(IR_PIN, INPUT);
+  pinMode(BUZZER_PIN, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+  Serial.begin(9600);
+  Serial.print("Arming in ");
+  Serial.print(ARMING_SECONDS);
+  Serial.println(" seconds...");
+  for (int s = ARMING_SECONDS; s &gt; 0; s--) {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(100);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(900);
+  }
+  Serial.println("ARMED");
+}
+
+void loop() {
+  if (digitalRead(IR_PIN) == SEES_THING) {
+    Serial.println("INTRUDER!");
+    digitalWrite(LED_BUILTIN, HIGH);
+    siren();
+    digitalWrite(LED_BUILTIN, LOW);
+  }
+}
+</textarea></div></section><section class="block"><h2>What you should see</h2><p>The Serial Monitor says ARMED, and then every wave of the hand sets off the siren and prints INTRUDER!</p><h2>How it works</h2><ul class="plain"><li>SEES_THING is LOW for most IR modules. If yours is the other way round, change it to HIGH.</li><li>setup() counts down five arming seconds, blinking the board light each second.</li><li>siren() plays two alternating notes four times. On an active buzzer it beeps instead.</li></ul></section><section class="block"><h2>Look it up</h2><p>Every command in this sketch is explained on the Arduino site:</p><div class="pillrow"><a class="pill blue" href="https://docs.arduino.cc/language-reference/en/functions/advanced-io/tone/" rel="noopener" target="_blank">tone()</a><a class="pill blue" href="https://docs.arduino.cc/language-reference/en/functions/communication/serial/" rel="noopener" target="_blank">Serial</a></div><p>More like this: <a href="learn.html">projects and tutorials online</a>.</p></section><section class="block"><h2>Try this</h2><ul class="plain"><li>Add the touch sensor as a secret disarm button.</li><li>Count how many times the alarm went off.</li><li>Make the siren get faster the longer someone stays there.</li></ul></section><section class="block"><h2>If it does not work</h2><details><summary>It is always ringing.</summary><p>The module is seeing the table or wall. Turn the screw to shorten its range, or point it into open space.</p></details><details><summary>It never rings.</summary><p>Check the small light on the module when you wave. If it flashes but the buzzer is quiet, the buzzer wiring is the problem. If it never flashes, check VCC and GND.</p></details><details><summary>Nothing happens at all.</summary><p>Check the power light on the Nano. Then check that the wires sit on the S, V and G of the same pin number, not a mix of two. Unplug the USB before you move any wire.</p></details></section><button class="btn go built" data-built="p06">I built it!</button><div class="nextrow"><a class="btn" href="buzzer-doorbell.html">← 5. Which buzzer? And a doorbell</a><a class="btn" href="parking-sensor.html">7. Parking sensor →</a></div></div><footer>SPV CERA Lab · Practical learning resource. Check the board and pin labels before connecting parts.</footer><script>(function () {
+  var KEY = 'chipcampkit.built';
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
+  function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var built = load();
+  document.querySelectorAll('.code').forEach(function (box) {
+    var text = box.querySelector('textarea').value;
+    box.querySelector('[data-copy]').onclick = function (ev) {
+      var b = ev.currentTarget;
+      var done = function () { b.textContent = 'Copied!'; setTimeout(function () { b.textContent = 'Copy code'; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+      else fallback();
+      function fallback() { var t = box.querySelector('textarea'); t.hidden = false; t.select(); document.execCommand('copy'); t.hidden = true; done(); }
+    };
+    box.querySelector('[data-dl]').onclick = function () {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+      a.download = box.getAttribute('data-file');
+      document.body.appendChild(a); a.click(); a.remove();
+    };
+  });
+  var btn = document.querySelector('[data-built]');
+  if (btn) {
+    var id = btn.getAttribute('data-built');
+    var paint = function () { btn.textContent = built[id] ? 'Built it! (tap to undo)' : 'I built it!'; };
+    btn.onclick = function () { if (built[id]) delete built[id]; else built[id] = 1; save(built); paint(); };
+    paint();
+  }
+  var count = document.getElementById('count');
+  if (count) {
+    var n = 0;
+    Object.keys(built).forEach(function (k) { var c = document.getElementById('c-' + k); if (c) { c.classList.add('is-done'); n++; } });
+    count.textContent = n + ' of 15 built';
+  }
+})();
+</script><div class="wrap cera-footer"><strong>SPV CERA Lab</strong> · Computers / Embedded Systems / Robotics / Artificial Intelligence · Independent instructional prototype</div></body></html>
